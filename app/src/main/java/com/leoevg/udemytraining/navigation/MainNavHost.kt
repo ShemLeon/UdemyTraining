@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.screens.HelloWorld
-
+import com.leoevg.udemytraining.screens.GreetingAppScreen
 import com.leoevg.udemytraining.screens.StartScreen
 
 @Composable
@@ -26,6 +26,10 @@ fun MainNavHost(){
         composable<NavigationPath.HelloWorldNazvanie> {
             HelloWorld()
         }
-
+        composable<NavigationPath.GreetingAppNazvanie> {
+            GreetingAppScreen { path ->
+                navController.navigate(path)
+            }
+        }
     }
 }

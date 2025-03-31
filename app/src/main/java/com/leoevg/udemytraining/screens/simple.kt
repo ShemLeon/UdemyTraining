@@ -1,8 +1,8 @@
 package com.leoevg.udemytraining.screens
 
+import androidx.core.app.NotificationCompat.MessagingStyle.Message
+
 fun main(){
-
-
     // Variables:
         // 1. Mutable variable
         var age: Int = 15
@@ -68,8 +68,13 @@ fun main(){
     */
     sayHello("Jack")
     sayHello("Jack", "5")
-    var res = sumNumb(5,4)
+    var res1 = sumNumb(5,4)
+    var res2 = sumNumb(5.2,4.0)
 
+    // OOP
+    val robot1 = Robot("Transformer")
+    robot1.walk()
+    robot1.speak("Trah babah")
 
 
 
@@ -80,4 +85,16 @@ fun sayHello(name: String, age: String = "Not Specified"){
 }
 fun sumNumb(x: Int, y: Int):Int{
     return x+y
+}
+fun sumNumb(x: Double, y: Double):Double{
+    return x+y
+}
+
+class Robot(val name: String){
+    fun walk(){
+        println("The Robot is Walking now")
+    }
+    fun speak(message: String){
+        println("$name says $message")
+    }
 }

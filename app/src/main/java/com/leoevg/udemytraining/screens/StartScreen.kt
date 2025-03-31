@@ -52,7 +52,20 @@ fun StartScreen(
                 text = "go to HelloWorld",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+            )
+        }
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
 
+            onClick = {
+                navigate(NavigationPath.GreetingAppNazvanie)
+            }
+        ) {
+            Text(
+                text = "go to GreetingApp",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
             )
         }
 

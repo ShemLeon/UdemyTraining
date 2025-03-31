@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UdemyTraining</string>
+    <string name="java">java</string>
+    <string name="kotlin">kotlin</string>
 </resources>
