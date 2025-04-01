@@ -35,7 +35,7 @@ import com.leoevg.udemytraining.ui.theme.BlueGrey
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 
 @Composable
-fun GreetingAppScreen(
+fun GreetingApp(
     navigate: (NavigationPath) -> Unit = {}
 ){
     var name by remember { mutableStateOf("") }
@@ -163,6 +163,6 @@ fun GreetingAppScreen(
 @Preview(showBackground = true)
 fun GreetingsPreview(){
     UdemyTrainingTheme {
-        GreetingAppScreen{}
+        GreetingApp{}
     }
 }
