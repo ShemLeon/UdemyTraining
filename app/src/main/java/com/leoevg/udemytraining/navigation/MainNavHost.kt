@@ -5,8 +5,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.leoevg.udemytraining.screens.CurConverter
+import com.leoevg.udemytraining.screens.GreetingApp
 import com.leoevg.udemytraining.screens.HelloWorld
-import com.leoevg.udemytraining.screens.GreetingAppScreen
 import com.leoevg.udemytraining.screens.StartScreen
 
 @Composable
@@ -27,7 +28,12 @@ fun MainNavHost(){
             HelloWorld()
         }
         composable<NavigationPath.GreetingAppNazvanie> {
-            GreetingAppScreen { path ->
+            GreetingApp{ path ->
+                navController.navigate(path)
+            }
+        }
+        composable<NavigationPath.CurConverterNazvanie> {
+            CurConverter{ path ->
                 navController.navigate(path)
             }
         }
