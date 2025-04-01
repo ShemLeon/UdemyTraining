@@ -117,12 +117,12 @@ fun GreetingAppScreen(
         }
 
         if (showLogo) {
-            val imageResId =
-                if (isJava) R.drawable.javalogo
-                else R.drawable.kotlinlogo
-            
+            val imgResId: Int
+            if (isJava) imgResId = R.drawable.javalogo
+            else imgResId = R.drawable.kotlinlogo
+
             Image(
-                painter = painterResource(id = imageResId),
+                painter = painterResource(id = imgResId),
                 contentDescription = if (isJava) "Java Logo" else "Kotlin Logo",
                 modifier = Modifier
                     .padding(top = 40.dp)
