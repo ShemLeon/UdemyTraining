@@ -98,3 +98,17 @@ class Robot(val name: String){
         println("$name says $message")
     }
 }
+
+/*
+   Box(
+
+       modifier = Modifier.fillMaxSize()
+   ){
+       Image(
+           painter = painterResource(id = R.drawable.bg_cosmos),
+           contentDescription = "image background",
+           contentScale = ContentScale.FillBounds,
+           modifier = Modifier.matchParentSize()
+       )
+   }
+   */
