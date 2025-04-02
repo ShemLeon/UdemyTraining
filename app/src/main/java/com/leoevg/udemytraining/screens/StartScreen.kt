@@ -82,6 +82,20 @@ fun StartScreen(
                 fontWeight = FontWeight.SemiBold,
             )
         }
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
+
+            onClick = {
+                navigate(NavigationPath. FragmentAppNazvanie)
+            }
+        ) {
+            Text(
+                text = "go to FragmentApp",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+            )
+        }
 
     }
 }

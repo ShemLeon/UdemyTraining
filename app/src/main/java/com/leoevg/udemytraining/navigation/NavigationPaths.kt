@@ -6,5 +6,5 @@ sealed interface NavigationPath{
     @Serializable object HelloWorldNazvanie: NavigationPath
     @Serializable object GreetingAppNazvanie: NavigationPath
     @Serializable object CurConverterNazvanie: NavigationPath
-
+    @Serializable object FragmentAppNazvanie: NavigationPath
 }

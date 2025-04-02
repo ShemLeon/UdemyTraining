@@ -3,6 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.google.devtools.ksp)
+
+//    id("kotlin-kapt")         -- спросить за это у ментора
+//    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -59,4 +64,15 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.kotlin.serialization.json)
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.dagger.hilt.android)
+    ksp(libs.dagger.hilt.android.compiler)
+//    implementation("com.google.dagger:hilt-android:2.51.1")
+//    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 }
+
+//// Allow references to generated code
+//kapt {
+//    correctErrorTypes = true
+//}
+
