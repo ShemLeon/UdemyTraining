@@ -96,7 +96,20 @@ fun StartScreen(
                 fontWeight = FontWeight.SemiBold,
             )
         }
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
 
+            onClick = {
+                navigate(NavigationPath.DaggerExampleNazvanie)
+            }
+        ) {
+            Text(
+                text = "go to Dagger Hilt",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+            )
+        }
     }
 }
 

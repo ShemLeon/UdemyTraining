@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.screens.CurConverter
+import com.leoevg.udemytraining.screens.DaggerHiltExampleScreen
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp
 import com.leoevg.udemytraining.screens.HelloWorld
@@ -43,6 +44,12 @@ fun MainNavHost(){
                 navController.navigate(path)
             }
         }
-
+        composable<NavigationPath.DaggerExampleNazvanie> {
+            DaggerHiltExampleScreen(
+                navigate = { path ->
+                    navController.navigate(path)
+                }
+            )
+        }
     }
 }
