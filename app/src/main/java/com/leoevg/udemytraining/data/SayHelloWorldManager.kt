@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.di
+package com.leoevg.udemytraining.data
 // просто класс, который мы будем реализовать дагерхилтом
 
 class SayHelloWorldManager(private val name: String) {

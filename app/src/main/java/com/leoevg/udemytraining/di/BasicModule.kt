@@ -1,5 +1,6 @@
 package com.leoevg.udemytraining.di
 
+import com.leoevg.udemytraining.data.SayHelloWorldManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 object BasicModule {
     @Provides
     @Singleton
-    fun providerSHWManager(): SayHelloWorldManager{
+    fun providerSHWManager(): SayHelloWorldManager {
         return SayHelloWorldManager("AppUser")
     }
 }
