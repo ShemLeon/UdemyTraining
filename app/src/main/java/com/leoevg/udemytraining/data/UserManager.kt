@@ -1,7 +1,7 @@
 package com.leoevg.udemytraining.data
-import javax.inject.Inject
 
-data class NameManager(
+data class UserManager(
+    val id: String,
     val name: String,
     val surname: String
 )

@@ -1,20 +1,35 @@
 package com.leoevg.udemytraining.di
 
+import com.leoevg.udemytraining.data.SayByeByeManager
 import com.leoevg.udemytraining.data.SayHelloWorldManager
+import com.leoevg.udemytraining.data.UserManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import java.util.UUID
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object BasicModule {
     @Provides
-    @Singleton
-    fun providerSHWManager(): SayHelloWorldManager {
-        return SayHelloWorldManager("AppUser")
+    fun provideNameManager(): UserManager {
+        return UserManager(UUID.randomUUID().toString(), "App", "userovich")
     }
+
+    @Provides
+    @Singleton
+    fun provideSayByeByeManager(userManager: UserManager): SayByeByeManager {
+        return SayByeByeManager(userManager)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSayHelloWorldManager(userManager: UserManager): SayHelloWorldManager {
+        return SayHelloWorldManager("userManager")
+    }
+
 }
 
 
