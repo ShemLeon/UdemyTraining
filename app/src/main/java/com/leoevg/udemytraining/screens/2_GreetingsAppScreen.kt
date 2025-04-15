@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.widget.Toast
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.leoevg.udemytraining.R
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.Blue
@@ -37,6 +38,7 @@ import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 @Composable
 fun GreetingApp(
     navigate: (NavigationPath) -> Unit = {}
+
 ){
     var name by remember { mutableStateOf("") }
     var language by remember { mutableStateOf("") }

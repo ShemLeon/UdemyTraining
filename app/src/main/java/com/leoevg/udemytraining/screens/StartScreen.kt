@@ -128,7 +128,7 @@ fun StartScreen(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                navigate(NavigationPath.ExampleDaggerNazvanie)
+                navigate(NavigationPath.ExampleViewModelNazvanie)
             }
         ) {
             Text(

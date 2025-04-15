@@ -20,7 +20,7 @@ fun HelloWorld(
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.Start,
+        horizontalAlignment = Alignment.CenterHorizontally,
         ) {
         Text(
             "Hello world!",
