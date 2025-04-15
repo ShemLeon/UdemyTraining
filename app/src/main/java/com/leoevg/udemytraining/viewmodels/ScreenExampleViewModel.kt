@@ -15,10 +15,9 @@ class ScreenExampleViewModel : ViewModel(){
     fun login(){
         //  if (email.isEmpty()){        }
         if (email == "email@gmail.com" && password == "1234"){
-            error = null
+            // error = null
             navigateTo = NavigationPath.StartNazvanie
         }
-
         else
             error = "Error logging on"
     }
