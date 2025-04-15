@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,7 +39,9 @@ fun StartScreen(
             color = Color.Black,
             fontSize = 30.sp,
             modifier = Modifier
-                .padding(top = 10.dp)
+                .padding(top = 10.dp),
+
+
         )
         Button(
             modifier = Modifier
@@ -49,9 +52,11 @@ fun StartScreen(
             }
         ) {
             Text(
-                text = "go to HelloWorld",
+                text = "1. HelloWorld",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
         }
         Button(
@@ -63,9 +68,11 @@ fun StartScreen(
             }
         ) {
             Text(
-                text = "go to GreetingApp",
+                text = "2. GreetingApp",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
         }
         Button(
@@ -77,9 +84,11 @@ fun StartScreen(
             }
         ) {
             Text(
-                text = "go to CurrencyConverter",
+                text = "3. CurrencyConverter",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
         }
         Button(
@@ -91,9 +100,11 @@ fun StartScreen(
             }
         ) {
             Text(
-                text = "go to FragmentApp",
+                text = "4. Fragments",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
         }
         Button(
@@ -101,15 +112,34 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath.DaggerExampleNazvanie)
+                navigate(NavigationPath.ExampleDaggerNazvanie)
             }
         ) {
             Text(
-                text = "go to Dagger Hilt",
+                text = "5. Dagger Hilt",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
             )
         }
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
+            onClick = {
+                navigate(NavigationPath.ExampleDaggerNazvanie)
+            }
+        ) {
+            Text(
+                text = "6. ViewModel",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
+            )
+        }
+
     }
 }
 

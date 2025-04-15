@@ -30,7 +30,7 @@ import com.leoevg.udemytraining.viewmodels.DaggerExampleViewModel
 import javax.inject.Inject
 
 @Composable
-fun DaggerHiltExample(
+fun ExampleDaggerHilt(
     navigate: (NavigationPath) -> Unit = {},
     viewModel: DaggerExampleViewModel = hiltViewModel()
 ) {
@@ -110,6 +110,6 @@ fun DaggerHiltExampleScreen(){
             SayHelloWorldManager("Preview"),
             SayByeByeManager(UserManager("preview", "preview", "preview"))
         ) {}
-        DaggerHiltExample(viewModel = previewViewModel)
+        ExampleDaggerHilt(viewModel = previewViewModel)
     }
 }
