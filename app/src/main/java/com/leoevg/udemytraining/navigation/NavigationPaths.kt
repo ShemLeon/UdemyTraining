@@ -9,4 +9,6 @@ sealed interface NavigationPath{
     @Serializable object FragmentAppNazvanie: NavigationPath
     @Serializable object ExampleDaggerNazvanie: NavigationPath
     @Serializable object ExampleViewModelNazvanie: NavigationPath
+    @Serializable object ExampleLazyRowNazvanie: NavigationPath
+
 }

@@ -103,7 +103,7 @@ fun ExampleDaggerHilt(
 
 @Preview(showBackground = true)
 @Composable
-fun DaggerHiltExampleScreen(){
+fun ExampleDaggerHiltPreview(){
     UdemyTrainingTheme(){
         // Создаем фейковый ViewModel для Preview
         val previewViewModel = object : DaggerExampleViewModel(

@@ -40,8 +40,6 @@ fun StartScreen(
             fontSize = 30.sp,
             modifier = Modifier
                 .padding(top = 10.dp),
-
-
         )
         Button(
             modifier = Modifier
@@ -133,6 +131,22 @@ fun StartScreen(
         ) {
             Text(
                 text = "6. ViewModel",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
+            )
+        }
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
+            onClick = {
+                navigate(NavigationPath.ExampleLazyRowNazvanie)
+            }
+        ) {
+            Text(
+                text = "7. Lazy Row",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.fillMaxWidth(),
