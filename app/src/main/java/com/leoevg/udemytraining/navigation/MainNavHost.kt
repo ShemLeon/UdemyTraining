@@ -60,7 +60,9 @@ fun MainNavHost(){
         }
 
         composable<NavigationPath.ExampleLazyRowNazvanie> {
-            ExampleLazyRow()
+            ExampleLazyRow{ path ->
+                navController.navigate(path)
+            }
         }
 
     }
