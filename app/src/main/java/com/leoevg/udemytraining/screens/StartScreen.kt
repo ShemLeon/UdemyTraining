@@ -46,7 +46,7 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath.HelloWorldNazvanie)
+                navigate(NavigationPath.HelloWorldSealed)
             }
         ) {
             Text(
@@ -62,7 +62,7 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath.GreetingAppNazvanie)
+                navigate(NavigationPath.GreetingAppSealed)
             }
         ) {
             Text(
@@ -78,7 +78,7 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath.CurConverterNazvanie)
+                navigate(NavigationPath.CurConverterSealed)
             }
         ) {
             Text(
@@ -94,7 +94,7 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath. FragmentAppNazvanie)
+                navigate(NavigationPath. FragmentAppSealed)
             }
         ) {
             Text(
@@ -110,7 +110,7 @@ fun StartScreen(
                 .fillMaxWidth(),
 
             onClick = {
-                navigate(NavigationPath.ExampleDaggerNazvanie)
+                navigate(NavigationPath.ExampleDaggerSealed)
             }
         ) {
             Text(
@@ -126,7 +126,7 @@ fun StartScreen(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                navigate(NavigationPath.ExampleViewModelNazvanie)
+                navigate(NavigationPath.ExampleViewModelSealed)
             }
         ) {
             Text(
@@ -142,7 +142,7 @@ fun StartScreen(
             modifier = Modifier
                 .fillMaxWidth(),
             onClick = {
-                navigate(NavigationPath.ExampleLazyRowNazvanie)
+                navigate(NavigationPath.ExampleLazyRowSealed)
             }
         ) {
             Text(

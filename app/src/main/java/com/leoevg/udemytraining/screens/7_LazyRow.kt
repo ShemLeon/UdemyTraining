@@ -1,13 +1,10 @@
 package com.leoevg.udemytraining.screens
 
-import android.content.ClipData.Item
-import androidx.collection.mutableIntSetOf
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -65,7 +62,7 @@ fun ExampleLazyRow(
             ),
             shape = RoundedCornerShape(15.dp),
             onClick = {
-                navigate(NavigationPath.StartNazvanie)
+                navigate(NavigationPath.StartSealed)
             }
         ){
             Text(

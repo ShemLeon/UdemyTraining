@@ -21,49 +21,55 @@ fun MainNavHost(){
 
     NavHost(
         navController = navController,
-        startDestination = NavigationPath.StartNazvanie
+        startDestination = NavigationPath.StartSealed
     ) {
-        composable<NavigationPath.StartNazvanie> {
+        composable<NavigationPath.StartSealed> {
             StartScreen { path ->
                 navController.navigate(path)
             }
         }
-        composable<NavigationPath.HelloWorldNazvanie> {
+        composable<NavigationPath.HelloWorldSealed> {
             HelloWorld()
         }
-        composable<NavigationPath.GreetingAppNazvanie> {
+        composable<NavigationPath.GreetingAppSealed> {
             GreetingApp{ path ->
                 navController.navigate(path)
             }
         }
-        composable<NavigationPath.CurConverterNazvanie> {
+        composable<NavigationPath.CurConverterSealed> {
             CurConverter{ path ->
                 navController.navigate(path)
             }
         }
-        composable<NavigationPath.FragmentAppNazvanie> {
+        composable<NavigationPath.FragmentAppSealed> {
             FragmentApp{ path ->
                 navController.navigate(path)
             }
         }
-        composable<NavigationPath.ExampleDaggerNazvanie> {
+        composable<NavigationPath.ExampleDaggerSealed> {
             ExampleDaggerHilt(
                 navigate = { path ->
                     navController.navigate(path)
                 }
             )
         }
-        composable<NavigationPath.ExampleViewModelNazvanie> {
+        composable<NavigationPath.ExampleViewModelSealed> {
             ExampleViewModel{ path ->
                     navController.navigate(path)
             }
         }
-
-        composable<NavigationPath.ExampleLazyRowNazvanie> {
+        composable<NavigationPath.ExampleLazyRowSealed> {
             ExampleLazyRow{ path ->
                 navController.navigate(path)
             }
         }
+        composable<NavigationPath.ExampleCustomComponentSealed> {
+            ExampleLazyRow{ path ->
+                navController.navigate(path)
+            }
+        }
+
+
 
     }
 }

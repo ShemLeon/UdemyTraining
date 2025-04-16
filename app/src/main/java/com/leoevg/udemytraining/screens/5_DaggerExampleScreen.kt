@@ -27,7 +27,6 @@ import com.leoevg.udemytraining.data.UserManager
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 import com.leoevg.udemytraining.viewmodels.DaggerExampleViewModel
-import javax.inject.Inject
 
 @Composable
 fun ExampleDaggerHilt(
@@ -93,7 +92,7 @@ fun ExampleDaggerHilt(
 
         // Btn_Home
         Button(
-            onClick = { navigate(NavigationPath.StartNazvanie) },
+            onClick = { navigate(NavigationPath.StartSealed) },
             modifier = Modifier.padding(top = 20.dp)
         ) {
             Text("Back")
