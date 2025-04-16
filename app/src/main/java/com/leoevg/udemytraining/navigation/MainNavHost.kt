@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.screens.CurConverter
+import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
 import com.leoevg.udemytraining.screens.ExampleViewModel
@@ -64,7 +65,7 @@ fun MainNavHost(){
             }
         }
         composable<NavigationPath.ExampleCustomComponentSealed> {
-            ExampleLazyRow{ path ->
+            ExampleCustomComponent{ path ->
                 navController.navigate(path)
             }
         }

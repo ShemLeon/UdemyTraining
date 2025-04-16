@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.leoevg.udemytraining.navigation.MainNavHost
 import com.leoevg.udemytraining.navigation.NavigationPath
+import com.leoevg.udemytraining.ui.theme.Blue
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 
 @Composable
@@ -92,7 +94,6 @@ fun StartScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth(),
-
             onClick = {
                 navigate(NavigationPath. FragmentAppSealed)
             }
@@ -108,7 +109,7 @@ fun StartScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth(),
-
+            colors = ButtonDefaults.buttonColors(containerColor = Blue),
             onClick = {
                 navigate(NavigationPath.ExampleDaggerSealed)
             }
@@ -125,6 +126,7 @@ fun StartScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Blue),
             onClick = {
                 navigate(NavigationPath.ExampleViewModelSealed)
             }
@@ -141,12 +143,30 @@ fun StartScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Blue),
             onClick = {
                 navigate(NavigationPath.ExampleLazyRowSealed)
             }
         ) {
             Text(
                 text = "7. Lazy Row",
+                fontSize = 25.sp,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Start
+            )
+        }
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Blue),
+            onClick = {
+                navigate(NavigationPath.ExampleCustomComponentSealed)
+            }
+        ) {
+            Text(
+                text = "8. Custom Component",
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.fillMaxWidth(),
