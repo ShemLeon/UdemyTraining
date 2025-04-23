@@ -15,3 +15,4 @@ val Bg = Color(0xFFFBFDFE)
 val BlueGrey = Color(0xFF255A7E).copy(alpha = 0.09f)
 
 val Blue = Color(0xFF3498DB)
+val Indigo = Color(0xFF3F51B5)

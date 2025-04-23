@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.sp
 import com.leoevg.udemytraining.navigation.MainNavHost
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.Blue
+import com.leoevg.udemytraining.ui.theme.BlueGrey
+import com.leoevg.udemytraining.ui.theme.Indigo
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 
 @Composable
@@ -43,137 +45,55 @@ fun StartScreen(
             modifier = Modifier
                 .padding(top = 10.dp),
         )
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-
-            onClick = {
-                navigate(NavigationPath.HelloWorldSealed)
-            }
-        ) {
-            Text(
-                text = "1. HelloWorld",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+        CustomBtn(Modifier, "1. HelloWorld", Indigo){
+            navigate(NavigationPath.HelloWorldSealed)
         }
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-
-            onClick = {
-                navigate(NavigationPath.GreetingAppSealed)
-            }
-        ) {
-            Text(
-                text = "2. GreetingApp",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+        CustomBtn(Modifier, "2. GreetingApp", Indigo){
+            navigate(NavigationPath.GreetingAppSealed)
         }
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-
-            onClick = {
-                navigate(NavigationPath.CurConverterSealed)
-            }
-        ) {
-            Text(
-                text = "3. CurrencyConverter",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+        CustomBtn(Modifier, "3. CurrencyConverter", Indigo){
+            navigate(NavigationPath.CurConverterSealed)
         }
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-            onClick = {
-                navigate(NavigationPath. FragmentAppSealed)
-            }
-        ) {
-            Text(
-                text = "4. Fragments",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+        CustomBtn(Modifier, "4. Fragments", Indigo){
+            navigate(NavigationPath.FragmentAppSealed)
         }
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue),
-            onClick = {
-                navigate(NavigationPath.ExampleDaggerSealed)
-            }
-        ) {
-            Text(
-                text = "5. Dagger Hilt",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+        CustomBtn(Modifier, "5. Dagger Hilt", Blue){
+            navigate(NavigationPath.ExampleDaggerSealed)
+        }
+        CustomBtn(Modifier, "6. ViewModel", Blue){
+            navigate(NavigationPath.ExampleViewModelSealed)
+        }
+        CustomBtn(Modifier, "7. Lazy Row", Blue){
+            navigate(NavigationPath.ExampleLazyRowSealed)
+        }
+        CustomBtn(Modifier, "8. Custom Component", Blue){
+            navigate(NavigationPath.ExampleCustomComponentSealed)
         }
 
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue),
-            onClick = {
-                navigate(NavigationPath.ExampleViewModelSealed)
-            }
-        ) {
-            Text(
-                text = "6. ViewModel",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
-        }
+    }
+}
 
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue),
-            onClick = {
-                navigate(NavigationPath.ExampleLazyRowSealed)
-            }
-        ) {
-            Text(
-                text = "7. Lazy Row",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
+@Composable
+fun CustomBtn(
+    modifier: Modifier,
+    textContent: String,
+    color: Color,
+    navigate: (NavigationPath) -> Unit
+){
+    Button(
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(containerColor = color),
+        onClick = {
+            navigate(NavigationPath.ExampleCustomComponentSealed)
         }
-
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue),
-            onClick = {
-                navigate(NavigationPath.ExampleCustomComponentSealed)
-            }
-        ) {
-            Text(
-                text = "8. Custom Component",
-                fontSize = 25.sp,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Start
-            )
-        }
-
+    ) {
+        Text(
+            text = textContent,
+            fontSize = 25.sp,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start
+        )
     }
 }
 
