@@ -65,7 +65,9 @@ fun CurConverter(
                     .fillMaxWidth(0.9f)
                     .padding(top = 80.dp),
                 value = dollars,
-                onValueChange = { dollars = it },
+                onValueChange = {
+                    dollars = it
+                                },
                 placeholder = {
                     Text(text = "Enter USD", color = Color.Gray)
                 },
@@ -93,7 +95,7 @@ fun CurConverter(
             ),
             shape = RoundedCornerShape(15.dp),
             onClick = {
-                val usdAmount = dollars.toDouble()
+                val usdAmount = dollars.toDoubleOrNull() ?: 0.0
                 val shekelAmount = makeConversion(usdAmount)
                 result = String.format("%.2f", shekelAmount)
             }
