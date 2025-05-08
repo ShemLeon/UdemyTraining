@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,9 +7,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
-
-//    id("kotlin-kapt")         -- спросить за это у ментора
-//    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -45,8 +44,10 @@ android {
     }
 }
 
+
 dependencies {
 
+    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -55,6 +56,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -69,14 +71,6 @@ dependencies {
     ksp(libs.dagger.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
-
-
-//    implementation("com.google.dagger:hilt-android:2.51.1")
-//    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 }
 
-//// Allow references to generated code
-//kapt {
-//    correctErrorTypes = true
-//}
 

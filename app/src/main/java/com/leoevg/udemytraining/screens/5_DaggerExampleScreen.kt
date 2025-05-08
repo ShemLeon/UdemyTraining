@@ -26,12 +26,12 @@ import com.leoevg.udemytraining.data.SayHelloWorldManager
 import com.leoevg.udemytraining.data.UserManager
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
-import com.leoevg.udemytraining.viewmodels.DaggerExampleViewModel
+import com.leoevg.udemytraining.viewmodels._5_DaggerExampleViewModel
 
 @Composable
 fun ExampleDaggerHilt(
     navigate: (NavigationPath) -> Unit = {},
-    viewModel: DaggerExampleViewModel = hiltViewModel()
+    viewModel: _5_DaggerExampleViewModel = hiltViewModel()
 ) {
     var message by remember { mutableStateOf("") }
     var message2 by remember { mutableStateOf("") }
@@ -105,7 +105,7 @@ fun ExampleDaggerHilt(
 fun ExampleDaggerHiltPreview(){
     UdemyTrainingTheme(){
         // Создаем фейковый ViewModel для Preview
-        val previewViewModel = object : DaggerExampleViewModel(
+        val previewViewModel = object : _5_DaggerExampleViewModel(
             SayHelloWorldManager("Preview"),
             SayByeByeManager(UserManager("preview", "preview", "preview"))
         ) {}

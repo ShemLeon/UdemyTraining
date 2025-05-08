@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.screens.CurConverter
+import com.leoevg.udemytraining.screens.ExampleActivityLifeCycle
 import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
@@ -69,6 +70,12 @@ fun MainNavHost(){
                 navController.navigate(path)
             }
         }
+        composable<NavigationPath.ExampleActivityLifeCycleSealed> {
+            ExampleActivityLifeCycle{ path ->
+                navController.navigate(path)
+            }
+        }
+
 
 
 

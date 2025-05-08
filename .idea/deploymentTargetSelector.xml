@@ -17,6 +17,9 @@
       <SelectionState runConfigName="ExampleCustomComponentPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="PreviewExampleActivityLifeCycle">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

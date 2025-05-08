@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-open class DaggerExampleViewModel @Inject constructor(
+open class _5_DaggerExampleViewModel @Inject constructor(
     private val sayHelloWorldManager: SayHelloWorldManager,
     private val sayByeByeManager: SayByeByeManager
 ) : ViewModel() {

@@ -26,14 +26,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.leoevg.udemytraining.R
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
-import com.leoevg.udemytraining.viewmodels.ScreenExampleViewModel
+import com.leoevg.udemytraining.viewmodels._6_ScreenExampleViewModel
 
 @Composable
 fun ExampleViewModel(
     navigate: (NavigationPath) -> Unit = {}
 ){
-    val viewModel: ScreenExampleViewModel = viewModel()
-
+    val viewModel: _6_ScreenExampleViewModel = viewModel()
     Box(
         modifier = Modifier.fillMaxSize()
     ) {

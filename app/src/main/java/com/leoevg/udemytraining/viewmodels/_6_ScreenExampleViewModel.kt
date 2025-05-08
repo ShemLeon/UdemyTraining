@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.leoevg.udemytraining.navigation.NavigationPath
 
-class ScreenExampleViewModel : ViewModel(){
+class _6_ScreenExampleViewModel : ViewModel(){
     var email by mutableStateOf("email@gmail.com")
     var password by mutableStateOf("")
     var error by mutableStateOf<String?>(null)

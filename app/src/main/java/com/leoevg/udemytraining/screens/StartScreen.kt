@@ -69,6 +69,9 @@ fun StartScreen(
         CustomBtn(Modifier, "8. Custom Component", Blue){
             navigate(NavigationPath.ExampleCustomComponentSealed)
         }
+        CustomBtn(Modifier, "9. Life Cycle", Blue){
+            navigate(NavigationPath.ExampleActivityLifeCycleSealed)
+        }
 
     }
 }
