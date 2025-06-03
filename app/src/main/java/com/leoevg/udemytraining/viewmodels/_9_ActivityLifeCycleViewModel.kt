@@ -6,10 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
 
 class _9_ActivityLifeCycleViewModel: ViewModel(), DefaultLifecycleObserver {
@@ -86,10 +83,4 @@ class _9_ActivityLifeCycleViewModel: ViewModel(), DefaultLifecycleObserver {
         textColorOnDestroy = Color.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onDestroy()")
     }
-
-
-
-
-
-
 }
