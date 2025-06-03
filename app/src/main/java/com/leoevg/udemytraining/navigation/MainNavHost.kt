@@ -71,9 +71,9 @@ fun MainNavHost(){
             }
         }
         composable<NavigationPath.ExampleActivityLifeCycleSealed> {
-            ExampleActivityLifeCycle{ path ->
+            ExampleActivityLifeCycle(navigate = { path ->
                 navController.navigate(path)
-            }
+            })
         }
 
 

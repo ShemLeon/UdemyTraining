@@ -1,15 +1,14 @@
 package com.leoevg.udemytraining.screens
-
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.tween
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -30,19 +29,24 @@ fun ExampleActivityLifeCycle(
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
 ){
     val viewModel: _9_ActivityLifeCycleViewModel= viewModel()
-    LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(800)
-        viewModel.onCreateEvent()
-    }
-    LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(1600)
-        viewModel.onStartEvent()
-    }
-    LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(2400)
-        viewModel.onResumeEvent()
+
+    val context = LocalContext.current
+    val toastMessage = viewModel.toastMessage
+
+    LaunchedEffect(toastMessage) {
+        toastMessage?.let {
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            viewModel.toastMessage = null
+        }
     }
 
+    // отслеживание состояния
+    DisposableEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.addObserver(viewModel)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(viewModel)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -87,7 +91,7 @@ fun ExampleActivityLifeCycle(
             fontSize = 28.sp,
             color = viewModel.textColorOnResume,
         )
-
+// 4. onPause
         Text(
             modifier = Modifier
                 .padding(top = 30.dp)
@@ -97,13 +101,33 @@ fun ExampleActivityLifeCycle(
             fontSize = 28.sp,
             color = viewModel.textColorOnPause,
         )
+// 5. onStop
+        Text(
+            modifier = Modifier
+                .padding(top = 30.dp)
+                .background(color = viewModel.colorOnStop),
+            textAlign = TextAlign.Center,
+            text = "5. onStop",
+            fontSize = 28.sp,
+            color = viewModel.textColorOnStop,
+        )
+// 6. onDestroy
+        Text(
+            modifier = Modifier
+                .padding(top = 30.dp)
+                .background(color = viewModel.colorOnDestroy),
+            textAlign = TextAlign.Center,
+            text = "5. onDestroy",
+            fontSize = 28.sp,
+            color = viewModel.textColorOnDestroy,
+        )
     }
 }
 
-/*
+
 @Composable
 @Preview(showBackground = true)
 fun PreviewExampleActivityLifeCycle(){
-    ExampleActivityLifeCycle{}
+    ExampleActivityLifeCycle()
 }
-*/
+
