@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHost
 import com.leoevg.udemytraining.navigation.MainNavHost
 import com.leoevg.udemytraining.screens.sayHello
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
@@ -23,17 +24,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // ф-я настраивает дисплей приложения
         enableEdgeToEdge()
-
         setContent {
             UdemyTrainingTheme {
-                                   UIMainTest()
-
+                UIMainTest()
             }
         }
-
     }
 }
 

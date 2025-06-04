@@ -10,6 +10,7 @@ import com.leoevg.udemytraining.screens.ExampleActivityLifeCycle
 import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
+import com.leoevg.udemytraining.screens.ExampleSnackBar
 import com.leoevg.udemytraining.screens.ExampleViewModel
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp
@@ -72,6 +73,11 @@ fun MainNavHost(){
         }
         composable<NavigationPath.ExampleActivityLifeCycleSealed> {
             ExampleActivityLifeCycle(navigate = { path ->
+                navController.navigate(path)
+            })
+        }
+        composable<NavigationPath.ExampleActivityLifeCycleSealed> {
+            ExampleSnackBar(navigate = { path ->
                 navController.navigate(path)
             })
         }

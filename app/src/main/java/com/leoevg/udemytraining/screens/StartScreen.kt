@@ -72,6 +72,9 @@ fun StartScreen(
         CustomBtn(Modifier, "9. Life Cycle", Blue){
             navigate(NavigationPath.ExampleActivityLifeCycleSealed)
         }
+        CustomBtn(Modifier, "10. SnackBar", Blue){
+            navigate(NavigationPath.ExampleActivityLifeCycleSealed)
+        }
 
     }
 }
