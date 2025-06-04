@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -26,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.data.SnackBarController
 import com.leoevg.udemytraining.navigation.MainNavHost
 import com.leoevg.udemytraining.screens._10_Snackbar.ObserveAsEvents
+import com.leoevg.udemytraining.screens._10_Snackbar.ScreenA
 import com.leoevg.udemytraining.screens.sayHello
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 import com.leoevg.udemytraining.screens._10_Snackbar._10_SnackBarViewModel
@@ -85,10 +87,24 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = 10_SnackBar
+                        startDestination = 10_SnackBar,
+                        modifier = Modifier.padding(innerPadding)
                     ){
-                        composable<ScreenA>{}
-                        composable<ScreenB>{}
+                        composable<ScreenA>{
+                            ScreenA(onNavigate = {
+                                navController.navigate(ScreenB)
+                            })
+                        }
+                        composable<ScreenB>{
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize(),
+                                contentAligment = Aligment.Center
+                            ){
+                                Text(text = "Screen B")
+                            }
+
+                        }
                     }
                 }
                 UIMainTest()
