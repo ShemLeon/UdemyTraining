@@ -30,12 +30,15 @@ fun MainNavHost(){
                 navController.navigate(path)
             }
         }
+
         composable<NavigationPath.HelloWorldSealed> {
             HelloWorld()
         }
         composable<NavigationPath.GreetingAppSealed> {
             GreetingApp{ path ->
                 navController.navigate(path)
+
+
             }
         }
         composable<NavigationPath.CurConverterSealed> {
@@ -49,32 +52,38 @@ fun MainNavHost(){
             }
         }
         composable<NavigationPath.ExampleDaggerSealed> {
-            ExampleDaggerHilt(
-                navigate = { path ->
-                    navController.navigate(path)
-                }
-            )
-        }
-        composable<NavigationPath.ExampleViewModelSealed> {
-            ExampleViewModel{ path ->
-                    navController.navigate(path)
-            }
-        }
-        composable<NavigationPath.ExampleLazyRowSealed> {
-            ExampleLazyRow{ path ->
-                navController.navigate(path)
-            }
-        }
-        composable<NavigationPath.ExampleCustomComponentSealed> {
-            ExampleCustomComponent{ path ->
-                navController.navigate(path)
-            }
-        }
-        composable<NavigationPath.ExampleActivityLifeCycleSealed> {
-            ExampleActivityLifeCycle(navigate = { path ->
-                navController.navigate(path)
+            ExampleDaggerHilt(navigate ={
+                navController.navigate(it)
             })
         }
+        composable<NavigationPath.ExampleViewModelSealed> {
+            ExampleViewModel(navigate ={
+                navController.navigate(it)
+            })
+        }
+        composable<NavigationPath.ExampleLazyRowSealed> {
+            ExampleLazyRow(navigate ={
+                navController.navigate(it)
+            })
+        }
+        composable<NavigationPath.ExampleCustomComponentSealed> {
+            ExampleCustomComponent(navigate ={
+                navController.navigate(it)
+            })
+        }
+        composable<NavigationPath.ExampleActivityLifeCycleSealed> {
+            ExampleActivityLifeCycle(navigate = {
+                navController.navigate(it)
+            })
+        }
+
+//        navigate = {
+//            navController.navigate(it)
+//        },
+//        popBackStack = {
+//            navController.popBackStack()
+//        }
+
         composable<NavigationPath.ExampleSnackBar> {
             ExampleSnackBar(
                 navigateBack = { navController.popBackStack() }

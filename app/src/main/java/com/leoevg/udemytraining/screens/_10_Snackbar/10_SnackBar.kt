@@ -5,10 +5,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration // Добавьте этот импорт
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult // Добавьте этот импорт
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -28,7 +28,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 private data object SnackBarScreenA
-
 @Serializable
 private data object SnackBarScreenB
 
@@ -36,7 +35,6 @@ private data object SnackBarScreenB
 fun ExampleSnackBar(
     navigateBack: () -> Unit = {}
     ){
-
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val localNavController = rememberNavController()
