@@ -12,5 +12,5 @@ sealed interface NavigationPath{
     @Serializable object ExampleLazyRowSealed: NavigationPath
     @Serializable object ExampleCustomComponentSealed: NavigationPath
     @Serializable object ExampleActivityLifeCycleSealed: NavigationPath
-    @Serializable object ExampleExampleSnackBar: NavigationPath
+    @Serializable object ExampleSnackBar: NavigationPath
 }
