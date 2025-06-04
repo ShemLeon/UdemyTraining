@@ -1,6 +1,5 @@
-package com.leoevg.udemytraining.data
+package com.leoevg.udemytraining.screens._10_Snackbar
 
-import android.os.Message
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 
@@ -9,10 +8,10 @@ data class SnackbarEvent(
     val action: SnackBarAction? = null
 )
 
-data class SnackBarAction{
+data class SnackBarAction(
     val name: String,
-    val action: () -> Unit
-}
+    val action: suspend () -> Unit
+)
 
 
 object SnackBarController {

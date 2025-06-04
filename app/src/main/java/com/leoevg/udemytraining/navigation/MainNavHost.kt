@@ -20,7 +20,6 @@ import com.leoevg.udemytraining.screens.StartScreen
 @Composable
 fun MainNavHost(){
     val navController = rememberNavController()
-    val context = LocalContext.current
 
     NavHost(
         navController = navController,
@@ -76,10 +75,10 @@ fun MainNavHost(){
                 navController.navigate(path)
             })
         }
-        composable<NavigationPath.ExampleActivityLifeCycleSealed> {
-            ExampleSnackBar(navigate = { path ->
-                navController.navigate(path)
-            })
+        composable<NavigationPath.ExampleSnackBar> {
+            ExampleSnackBar(
+                navigateBack = { navController.popBackStack() }
+            )
         }
 
 
