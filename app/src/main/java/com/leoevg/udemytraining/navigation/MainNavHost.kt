@@ -6,11 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.leoevg.udemytraining.screens.CurConverter
-import com.leoevg.udemytraining.screens.ExampleActivityLifeCycle
+import com.leoevg.udemytraining.screens._9_ActivityLifeCycle.ExampleActivityLifeCycle
 import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
-import com.leoevg.udemytraining.screens.ExampleSnackBar
+import com.leoevg.udemytraining.screens._10_Snackbar.ExampleSnackBar
 import com.leoevg.udemytraining.screens.ExampleViewModel
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp

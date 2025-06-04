@@ -1,9 +1,7 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._10_Snackbar
 
 import androidx.compose.material3.MaterialTheme
-import com.leoevg.udemytraining.viewmodels._10_SnackBarViewModel
 
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,11 +25,6 @@ fun ExampleSnackBar(
     ){
     val viewModel: _10_SnackBarViewModel = viewModel ()
 
-    val context = LocalContext.current
-    val toastMessage = viewModel.toastMessage
-
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -45,13 +38,13 @@ fun ExampleSnackBar(
             ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-// 1. onCreate
+
         Text(
             modifier = Modifier
                 .padding(top = 30.dp)
                 .background(color = MaterialTheme.colorScheme.background),
             textAlign = TextAlign.Center,
-            text = "1. onCreate!",
+            text = "SnackBar!",
             fontSize = 28.sp,
             color = MaterialTheme.colorScheme.onBackground
         )

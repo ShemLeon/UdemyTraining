@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._9_ActivityLifeCycle
 import android.widget.Toast
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.background
@@ -21,7 +21,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.leoevg.udemytraining.navigation.NavigationPath
-import com.leoevg.udemytraining.viewmodels._9_ActivityLifeCycleViewModel
+import com.leoevg.udemytraining.screens._9_ActivityLifeCycle._9_ActivityLifeCycleViewModel
 
 @Composable
 fun ExampleActivityLifeCycle(

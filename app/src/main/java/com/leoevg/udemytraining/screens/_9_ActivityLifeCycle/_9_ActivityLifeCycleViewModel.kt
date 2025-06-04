@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.viewmodels
+package com.leoevg.udemytraining.screens._9_ActivityLifeCycle
 
 import android.util.Log
 import androidx.compose.runtime.getValue
@@ -13,74 +13,74 @@ class _9_ActivityLifeCycleViewModel: ViewModel(), DefaultLifecycleObserver {
     var toastMessage by mutableStateOf<String?>(null)
 
     var flagOnCreate by mutableStateOf(false)
-    var colorOnCreate by mutableStateOf(Color.Transparent)
-    var textColorOnCreate by mutableStateOf(Color.Black)
+    var colorOnCreate by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnCreate by mutableStateOf(Color.Companion.Black)
 
     var flagOnStart by mutableStateOf(false)
-    var colorOnStart by mutableStateOf(Color.Transparent)
-    var textColorOnStart by mutableStateOf(Color.Black)
+    var colorOnStart by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnStart by mutableStateOf(Color.Companion.Black)
 
     var flagOnResume by mutableStateOf(false)
-    var colorOnResume by mutableStateOf(Color.Transparent)
-    var textColorOnResume by mutableStateOf(Color.Black)
+    var colorOnResume by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnResume by mutableStateOf(Color.Companion.Black)
 
     var flagOnPause by mutableStateOf(false)
-    var colorOnPause by mutableStateOf(Color.Transparent)
-    var textColorOnPause by mutableStateOf(Color.Black)
+    var colorOnPause by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnPause by mutableStateOf(Color.Companion.Black)
 
     var flagOnStop by mutableStateOf(false)
-    var colorOnStop by mutableStateOf(Color.Transparent)
-    var textColorOnStop by mutableStateOf(Color.Black)
+    var colorOnStop by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnStop by mutableStateOf(Color.Companion.Black)
 
     var flagOnDestroy by mutableStateOf(false)
-    var colorOnDestroy by mutableStateOf(Color.Transparent)
-    var textColorOnDestroy by mutableStateOf(Color.Black)
+    var colorOnDestroy by mutableStateOf(Color.Companion.Transparent)
+    var textColorOnDestroy by mutableStateOf(Color.Companion.Black)
 
 
     override fun onCreate(owner: LifecycleOwner){
         super.onCreate(owner)
         flagOnCreate = true
-        colorOnCreate = Color.Blue
-        textColorOnCreate = Color.White
+        colorOnCreate = Color.Companion.Blue
+        textColorOnCreate = Color.Companion.White
         toastMessage = "onCreate"
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onCreate:")
     }
 
     override fun onStart(owner: LifecycleOwner) {
         flagOnStart = true
-        colorOnStart = Color.Blue
-        textColorOnStart = Color.White
+        colorOnStart = Color.Companion.Blue
+        textColorOnStart = Color.Companion.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onStart()")
     }
 
     override fun onResume(owner: LifecycleOwner) {
         flagOnResume = true
-        colorOnResume = Color.Blue
-        textColorOnResume = Color.White
+        colorOnResume = Color.Companion.Blue
+        textColorOnResume = Color.Companion.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onResume()")
     }
 
     override fun onPause(owner: LifecycleOwner) {
         super.onPause(owner)
         flagOnPause = true
-        colorOnPause = Color.Blue
-        textColorOnPause = Color.White
+        colorOnPause = Color.Companion.Blue
+        textColorOnPause = Color.Companion.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onPause()")
     }
 
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
         flagOnStop= true
-        colorOnStop = Color.Red
-        textColorOnStop = Color.White
+        colorOnStop = Color.Companion.Red
+        textColorOnStop = Color.Companion.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onStop()")
     }
 
     override fun onDestroy(owner: LifecycleOwner) {
         super.onDestroy(owner)
         flagOnDestroy= true
-        colorOnDestroy = Color.Red
-        textColorOnDestroy = Color.White
+        colorOnDestroy = Color.Companion.Red
+        textColorOnDestroy = Color.Companion.White
         Log.i("!!!", "${this::class.simpleName} Выполняется метод onDestroy()")
     }
 }
