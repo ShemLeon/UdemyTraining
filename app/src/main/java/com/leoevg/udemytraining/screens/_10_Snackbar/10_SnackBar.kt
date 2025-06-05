@@ -56,7 +56,6 @@ fun ExampleSnackBar(
         }
     }
 
-
     Scaffold(
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)

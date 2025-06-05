@@ -16,9 +16,9 @@ fun ScreenA(
     onNavigate: () -> Unit,
     modifier: Modifier= Modifier,
     viewModel: ScreenAViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-
     ) {
     val scope = rememberCoroutineScope()
+
     Column(
         modifier = modifier
             .fillMaxSize()
