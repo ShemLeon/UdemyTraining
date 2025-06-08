@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens._10_Snackbar
+package com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

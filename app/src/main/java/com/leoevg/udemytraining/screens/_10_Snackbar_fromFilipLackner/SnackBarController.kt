@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens._10_Snackbar
+package com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

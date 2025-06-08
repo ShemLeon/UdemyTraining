@@ -1,6 +1,5 @@
-package com.leoevg.udemytraining.screens._10_Snackbar
+package com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner
 
-import android.R.attr.action
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch

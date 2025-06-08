@@ -1,7 +1,6 @@
 package com.leoevg.udemytraining.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -10,7 +9,7 @@ import com.leoevg.udemytraining.screens._9_ActivityLifeCycle.ExampleActivityLife
 import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
-import com.leoevg.udemytraining.screens._10_Snackbar.ExampleSnackBar
+import com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner.ExampleSnackBar
 import com.leoevg.udemytraining.screens.ExampleViewModel
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp

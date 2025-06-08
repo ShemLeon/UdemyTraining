@@ -1,5 +1,6 @@
 package com.leoevg.udemytraining.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +29,9 @@ import kotlinx.coroutines.launch
 fun HelloWorld(
     navigate: (NavigationPath) -> Unit = {}
 ) {
+    // 1. создаем объект для вызова корутины
     val coroutineScope = rememberCoroutineScope()
+    // 2. отдельный state для snackBar
     val snackbarHostState = remember { SnackbarHostState() }
     Scaffold(
         snackbarHost = {
@@ -81,10 +84,13 @@ fun HelloWorld(
                     fontSize = 40.sp,
                     textAlign = TextAlign.Center,
                 )
+                Log.d("MyLog", "HelloWorld: ")
+                myFun()
             }
         }
     }
 }
+
 
 @Composable
 @Preview(showBackground = true)
@@ -92,4 +98,9 @@ fun HelloWorldPreview() {
     UdemyTrainingTheme {
         HelloWorld()
     }
+}
+
+private fun myFun(){
+    val number = "56".toInt()
+
 }
