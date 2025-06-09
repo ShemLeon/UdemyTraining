@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.MainApi
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
@@ -51,7 +52,8 @@ fun ExampleRetroFit(
     val scope = rememberCoroutineScope()
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
     var productText by remember { mutableStateOf("жми кнопку") }
-
+    var imageUrl by remember { mutableStateOf<String?>(null) }
+    var counter by remember { mutableStateOf<Int>(1) }
 
 
     Column(
@@ -59,6 +61,9 @@ fun ExampleRetroFit(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        if(imageUrl != null) {
+            AsyncImage(model = imageUrl, contentDescription = "product image")
+        }
         // 4. Этот текст будет автоматически обновляться при изменении productText
         Text(
             text = productText,
@@ -71,16 +76,20 @@ fun ExampleRetroFit(
             color = Color.Blue
         )
         Button(
+
             onClick = {
                 productText = "Загрузка..."
+                imageUrl = null
                 // Запускаем корутину для выполнения сетевого запроса
                 scope.launch {
                     try {
                         // Выполняем запрос к API
-                        val product = mainApi.getProductById(3)
+                        val product = mainApi.getProductById(counter)
                         // В случае успеха обновляем текст названием продукта
                         productText = product.title
+                        imageUrl = product.thumbnail
                         Log.d("MyLog", "Product loaded: $product")
+                        counter++
                     } catch (e: Exception) {
                         // В случае ошибки показываем сообщение
                         productText = "Ошибка загрузки!"
