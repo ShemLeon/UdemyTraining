@@ -41,13 +41,23 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 }
 
 
 dependencies {
+    api(platform(libs.okhttp.bom))
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
+    implementation(libs.picasso)
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
+
+
 
     implementation(libs.listenablefuture)
     implementation(libs.androidx.core.ktx)

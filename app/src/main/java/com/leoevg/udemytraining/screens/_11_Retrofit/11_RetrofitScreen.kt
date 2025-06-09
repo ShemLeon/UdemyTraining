@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -21,9 +20,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.leoevg.udemytraining.navigation.NavigationPath
-import com.leoevg.udemytraining.retrofit.ProductApi
+import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.MainApi
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 import kotlinx.coroutines.launch
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -31,18 +31,28 @@ import retrofit2.converter.gson.GsonConverterFactory
 fun ExampleRetroFit(
     navigate: (NavigationPath) -> Unit = {}
 ) {
+    // 4. okHttp
+    val interceptor = HttpLoggingInterceptor()
+    interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+    val client = okhttp3.OkHttpClient.Builder()
+        .addInterceptor(interceptor)
+        .build()
+
     // 1. Создаем и "запоминаем" экземпляр API, чтобы не пересоздавать его постоянно
-    val productApi = remember{
+    val mainApi = remember{
         Retrofit.Builder()
-            .baseUrl("https://dummyjson.com")   // базовая ссылка
-            .addConverterFactory(GsonConverterFactory.create()).build()
-            .create(ProductApi::class.java)
+            .baseUrl("https://dummyjson.com").client(client)   // базовая ссылка
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(MainApi::class.java)
     }
     // 2. Создаем CoroutineScope, привязанный к жизненному циклу экрана
     val scope = rememberCoroutineScope()
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
     var productText by remember { mutableStateOf("жми кнопку") }
-    // productApi.getProductById() - теперь можно получить продукт по ссылке
+
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -67,7 +77,7 @@ fun ExampleRetroFit(
                 scope.launch {
                     try {
                         // Выполняем запрос к API
-                        val product = productApi.getProductById()
+                        val product = mainApi.getProductById(3)
                         // В случае успеха обновляем текст названием продукта
                         productText = product.title
                         Log.d("MyLog", "Product loaded: $product")
