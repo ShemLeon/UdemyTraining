@@ -1,5 +1,6 @@
 [versions]
 agp = "8.8.0"
+converterGson = "2.9.0"
 kotlin = "2.0.21"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -8,15 +9,18 @@ espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
 composeBom = "2024.04.01"
+listenablefuture = "9999.0-empty-to-avoid-conflict-with-guava"
 navigationCompose = "2.8.9"
 kotlinxSerializationJson = "1.7.3"
 hilt = "2.56"
 hiltNavigationCompose = "1.2.0"
 ksp = "2.0.21-1.0.27"
 compiler = "3.2.0-alpha11"
+retrofit = "2.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -37,6 +41,8 @@ kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializat
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"}
 dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt"  }
 androidx-compiler = { group = "androidx.databinding", name = "compiler", version.ref = "compiler" }
+listenablefuture = { module = "com.google.guava:listenablefuture", version.ref = "listenablefuture" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -13,4 +13,5 @@ sealed interface NavigationPath{
     @Serializable object ExampleCustomComponentSealed: NavigationPath
     @Serializable object ExampleActivityLifeCycleSealed: NavigationPath
     @Serializable object ExampleSnackBar: NavigationPath
+    @Serializable object ExampleRetroFit: NavigationPath
 }

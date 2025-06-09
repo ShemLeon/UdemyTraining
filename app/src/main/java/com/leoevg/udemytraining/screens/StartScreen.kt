@@ -75,6 +75,10 @@ fun StartScreen(
         CustomBtn(Modifier, "10. SnackBar", Blue){
             navigate(NavigationPath.ExampleSnackBar)
         }
+        CustomBtn(Modifier, "11. RetroFit", Blue){
+            navigate(NavigationPath.ExampleRetroFit)
+        }
+
 
     }
 }

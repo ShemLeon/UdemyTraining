@@ -15,6 +15,7 @@ import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp
 import com.leoevg.udemytraining.screens.HelloWorld
 import com.leoevg.udemytraining.screens.StartScreen
+import com.leoevg.udemytraining.screens._11_Retrofit.ExampleRetroFit
 
 @Composable
 fun MainNavHost(){
@@ -88,8 +89,11 @@ fun MainNavHost(){
                 navigateBack = { navController.popBackStack() }
             )
         }
-
-
+        composable<NavigationPath.ExampleRetroFit> {
+            ExampleRetroFit(navigate = {
+                navController.navigate(it)
+            })
+        }
 
 
     }

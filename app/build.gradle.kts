@@ -46,8 +46,10 @@ android {
 
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
-    implementation("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
+    implementation(libs.listenablefuture)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
