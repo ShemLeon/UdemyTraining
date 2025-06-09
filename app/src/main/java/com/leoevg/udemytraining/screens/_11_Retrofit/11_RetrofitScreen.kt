@@ -7,9 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.retrofit.ProductApi
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
+import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -58,8 +56,9 @@ fun ExampleRetroFit(
         verticalArrangement = Arrangement.Center
 
     ) {
+        // 4. Этот текст будет автоматически обновляться при изменении productText
         Text(
-            "Hello world!",
+            text = productText,
             fontSize = 40.sp,
             color = Color.Blue
         )
@@ -69,13 +68,23 @@ fun ExampleRetroFit(
                 .padding(top = 15.dp),
             onClick = {}
         ) {
-            Text(
-                text = "GET",
-                fontSize = 40.sp,
-                textAlign = TextAlign.Center,
-                )
+            productText = "Загрузка..."
+            // Запускаем корутину для выполнения сетевого запроса
+            scope.launch {
+                try {
+                    // Выполняем запрос к API
+                    val product = productApi.getProductById()
+                    // В случае успеха обновляем текст названием продукта
+                    productText = product.title
+                    Log.d("MyLog", "Product loaded: $product")
+                } catch (e: Exception) {
+                    // В случае ошибки показываем сообщение
+                    productText = "Ошибка загрузки!"
+                    Log.e("MyLog", "Error loading product", e)
+                }
             }
     }
+}
 }
 
 @Composable
