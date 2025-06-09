@@ -17,7 +17,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,7 +27,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 @Composable
 fun ExampleRetroFit(
     navigate: (NavigationPath) -> Unit = {}
@@ -37,55 +35,55 @@ fun ExampleRetroFit(
     val productApi = remember{
         Retrofit.Builder()
             .baseUrl("https://dummyjson.com")   // базовая ссылка
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+            .addConverterFactory(GsonConverterFactory.create()).build()
             .create(ProductApi::class.java)
     }
     // 2. Создаем CoroutineScope, привязанный к жизненному циклу экрана
     val scope = rememberCoroutineScope()
-
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
-    var productText by remember { mutableStateOf("Нажмите GET для загрузки") }
-
+    var productText by remember { mutableStateOf("жми кнопку") }
     // productApi.getProductById() - теперь можно получить продукт по ссылке
 
     Column(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
-
     ) {
         // 4. Этот текст будет автоматически обновляться при изменении productText
         Text(
             text = productText,
+            modifier = Modifier
+                .padding(15.dp)
+                .align(Alignment.CenterHorizontally),
+
+            lineHeight = 50.sp,
             fontSize = 40.sp,
             color = Color.Blue
         )
         Button(
-            modifier = Modifier
-                .fillMaxWidth(0.9f)
-                .padding(top = 15.dp),
-            onClick = {}
-        ) {
-            productText = "Загрузка..."
-            // Запускаем корутину для выполнения сетевого запроса
-            scope.launch {
-                try {
-                    // Выполняем запрос к API
-                    val product = productApi.getProductById()
-                    // В случае успеха обновляем текст названием продукта
-                    productText = product.title
-                    Log.d("MyLog", "Product loaded: $product")
-                } catch (e: Exception) {
-                    // В случае ошибки показываем сообщение
-                    productText = "Ошибка загрузки!"
-                    Log.e("MyLog", "Error loading product", e)
+            onClick = {
+                productText = "Загрузка..."
+                // Запускаем корутину для выполнения сетевого запроса
+                scope.launch {
+                    try {
+                        // Выполняем запрос к API
+                        val product = productApi.getProductById()
+                        // В случае успеха обновляем текст названием продукта
+                        productText = product.title
+                        Log.d("MyLog", "Product loaded: $product")
+                    } catch (e: Exception) {
+                        // В случае ошибки показываем сообщение
+                        productText = "Ошибка загрузки!"
+                        Log.e("MyLog", "Error loading product", e)
+                    }
                 }
             }
+        ) {
+            Text("GET")
+        }
     }
 }
-}
+
 
 @Composable
 @Preview(showBackground = true)
