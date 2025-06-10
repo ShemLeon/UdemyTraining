@@ -1,14 +1,26 @@
 package com.leoevg.udemytraining.screens._11_Retrofit
 
 import android.util.Log
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,6 +28,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,6 +42,7 @@ import kotlinx.coroutines.launch
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.nio.file.WatchEvent
 
 @Composable
 fun ExampleRetroFit(
@@ -53,52 +69,129 @@ fun ExampleRetroFit(
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
     var productText by remember { mutableStateOf("жми кнопку") }
     var imageUrl by remember { mutableStateOf<String?>(null) }
-    var counter by remember { mutableStateOf<Int>(1) }
+    var counter by remember { mutableIntStateOf(1) }
 
-
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        if(imageUrl != null) {
-            AsyncImage(model = imageUrl, contentDescription = "product image")
-        }
-        // 4. Этот текст будет автоматически обновляться при изменении productText
-        Text(
-            text = productText,
+    Column {
+        Column(
             modifier = Modifier
-                .padding(15.dp)
-                .align(Alignment.CenterHorizontally),
-
-            lineHeight = 50.sp,
-            fontSize = 40.sp,
-            color = Color.Blue
-        )
-        Button(
-
-            onClick = {
-                productText = "Загрузка..."
-                imageUrl = null
-                // Запускаем корутину для выполнения сетевого запроса
-                scope.launch {
-                    try {
-                        // Выполняем запрос к API
-                        val product = mainApi.getProductById(counter)
-                        // В случае успеха обновляем текст названием продукта
-                        productText = product.title
-                        imageUrl = product.thumbnail
-                        Log.d("MyLog", "Product loaded: $product")
-                        counter++
-                    } catch (e: Exception) {
-                        // В случае ошибки показываем сообщение
-                        productText = "Ошибка загрузки!"
-                        Log.e("MyLog", "Error loading product", e)
-                    }
+                .fillMaxWidth()
+                .height(230.dp)
+                .border(BorderStroke(2.dp, Color.Black)),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .padding(10.dp),
+                contentAlignment = Alignment.Center
+            ){
+                if(imageUrl != null) {
+                    AsyncImage(
+                        model = imageUrl,
+                        contentDescription = "product image",
+                        modifier = Modifier
+                            .size(80.dp),
+                        contentScale = ContentScale.Crop
+                    )
                 }
             }
+            // 4. Этот текст будет автоматически обновляться при изменении productText
+            Text(
+                text = productText,
+                modifier = Modifier
+                    .padding(horizontal = 15.dp)
+                ,
+                lineHeight = 50.sp,
+                fontSize = 40.sp,
+                color = Color.Blue,
+                maxLines = 1 // Показываем текст только в одну строку
+            )
+            Button(
+                onClick = {
+                    productText = "Загрузка..."
+                    imageUrl = null
+                    // Запускаем корутину для выполнения сетевого запроса
+                    scope.launch {
+                        try {
+                            // Выполняем запрос к API
+                            val product = mainApi.getProductById(counter)
+                            // В случае успеха обновляем текст названием продукта
+                            productText = product.title
+                            imageUrl = product.thumbnail
+                            Log.d("MyLog", "Product loaded: $product")
+                            counter++
+                        } catch (e: Exception) {
+                            // В случае ошибки показываем сообщение
+                            productText = "Ошибка загрузки!"
+                            Log.e("MyLog", "Error loading product", e)
+                        }
+                    }
+                }
+            ) {
+                Text("GET")
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(230.dp)
+                .border(BorderStroke(2.dp, Color.Black)),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
         ) {
-            Text("GET")
+            Box(
+                modifier = Modifier
+                    .size(100.dp)
+                    .padding(10.dp),
+                contentAlignment = Alignment.Center
+            ){
+                if(imageUrl != null) {
+                    AsyncImage(
+                        model = imageUrl,
+                        contentDescription = "product image",
+                        modifier = Modifier
+                            .size(80.dp),
+                        contentScale = ContentScale.Crop
+                    )
+                }
+            }
+            // 4. Этот текст будет автоматически обновляться при изменении productText
+            Text(
+                text = productText,
+                modifier = Modifier
+                    .padding(horizontal = 15.dp)
+                ,
+                lineHeight = 50.sp,
+                fontSize = 40.sp,
+                color = Color.Blue,
+                maxLines = 1 // Показываем текст только в одну строку
+            )
+            Button(
+                onClick = {
+                    productText = "Загрузка..."
+                    imageUrl = null
+                    // Запускаем корутину для выполнения сетевого запроса
+                    scope.launch {
+                        try {
+                            // Выполняем запрос к API
+                            val product = mainApi.getProductById(counter)
+                            // В случае успеха обновляем текст названием продукта
+                            productText = product.title
+                            imageUrl = product.thumbnail
+                            Log.d("MyLog", "Product loaded: $product")
+                            counter++
+                        } catch (e: Exception) {
+                            // В случае ошибки показываем сообщение
+                            productText = "Ошибка загрузки!"
+                            Log.e("MyLog", "Error loading product", e)
+                        }
+                    }
+                }
+            ) {
+                Text("GET")
+            }
         }
     }
 }
@@ -111,3 +204,22 @@ fun RetroFitExamplePreview() {
         ExampleRetroFit()
     }
 }
+
+//OutlinedTextField(
+//modifier = Modifier
+//.fillMaxWidth()
+//.padding(top = 20.dp),
+//value = email,
+//onValueChange = {
+//    // it - новое значение введенное юзером, евентом передаем его в viewModel
+//},
+//placeholder = { Text("qweqwe") },
+//shape = RoundedCornerShape(5.dp),
+//colors = OutlinedTextFieldDefaults.colors(
+//unfocusedBorderColor = Color.Transparent,
+//disabledContainerColor = MaterialTheme.colorScheme.secondary,
+//focusedContainerColor = MaterialTheme.colorScheme.secondary,
+//errorContainerColor = MaterialTheme.colorScheme.secondary,
+//// unfocusedContainerColor = BlueGrey
+//unfocusedContainerColor = MaterialTheme.colorScheme.secondary,
+//)
