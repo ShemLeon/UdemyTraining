@@ -15,7 +15,8 @@ import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp
 import com.leoevg.udemytraining.screens.HelloWorld
 import com.leoevg.udemytraining.screens.StartScreen
-import com.leoevg.udemytraining.screens._11_Retrofit.ExampleRetroFit
+import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetroFit
+import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitAuth
 
 @Composable
 fun MainNavHost(){
@@ -37,8 +38,6 @@ fun MainNavHost(){
         composable<NavigationPath.GreetingAppSealed> {
             GreetingApp{ path ->
                 navController.navigate(path)
-
-
             }
         }
         composable<NavigationPath.CurConverterSealed> {
@@ -94,6 +93,13 @@ fun MainNavHost(){
                 navController.navigate(it)
             })
         }
+
+        composable<NavigationPath.ExampleRetrofitAuth> {
+            ExampleRetrofitAuth(navigate = {
+                navController.navigate(it)
+            })
+        }
+
 
 
     }

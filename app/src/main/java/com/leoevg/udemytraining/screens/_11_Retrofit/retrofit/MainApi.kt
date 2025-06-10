@@ -10,8 +10,7 @@ interface MainApi {
     @GET("products/{id}") // ретрофит добавляет к базовой ссылке наш указатель
     suspend fun getProductById(@Path("id") id: Int): Product
 
+    // отправка по базовому запросу
     @POST("auth/login")
     suspend fun auth(@Body authRequest: AuthRequest): User
-
-
 }
