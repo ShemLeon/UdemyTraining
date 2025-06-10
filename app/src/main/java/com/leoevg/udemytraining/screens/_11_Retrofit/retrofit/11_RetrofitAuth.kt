@@ -7,6 +7,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -71,7 +72,7 @@ fun ExampleRetrofitAuth(
     // 2. Создаем CoroutineScope, привязанный к жизненному циклу экрана
     val scope = rememberCoroutineScope()
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
-    var entryEmail by remember { mutableStateOf("") }
+    var entryEmail by remember { mutableStateOf("emilys") }
     var entryPassword by remember { mutableStateOf("emilyspass") }
     var userNick by remember { mutableStateOf("залогинься") }
     var userImageUrl by remember { mutableStateOf<String?>(null) }
@@ -88,8 +89,9 @@ fun ExampleRetrofitAuth(
     ) {
         Box(
             modifier = Modifier
-                .size(100.dp)
-                .padding(10.dp),
+                .fillMaxWidth(0.7f)
+                .aspectRatio(1f) // расположение квадратиком
+                .padding(top=20.dp),
             contentAlignment = Alignment.Center
         ) {
             if (userImageUrl != null) {
@@ -97,14 +99,18 @@ fun ExampleRetrofitAuth(
                     model = userImageUrl,
                     contentDescription = "user image",
                     modifier = Modifier
-                        .size(80.dp),
-                    contentScale = ContentScale.Crop
+                        .fillMaxSize()
+                        .background(
+                            color = MaterialTheme.colorScheme.primary.copy(alpha = 0.05f),
+                            shape = RoundedCornerShape(12.dp)
+                        ),
+
                 )
             } else {
                 // Можно добавить Placeholder, если userImageUrl == null
                 Box(
                     modifier = Modifier
-                        .size(80.dp)
+                        .fillMaxSize()
                         .background(Color.LightGray) // Пример плейсхолдера
                 )
             }
@@ -134,15 +140,6 @@ fun ExampleRetrofitAuth(
             isError = loginError != null // Подсвечиваем поле при ошибке
         )
 
-        if (loginError != null) {
-            Text(
-                text = loginError!!,
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-        }
-
         Button(
             onClick = {
                 if (entryEmail.isBlank() || entryPassword.isBlank()) {
@@ -160,7 +157,7 @@ fun ExampleRetrofitAuth(
                             entryPassword.toString()
                         )
                     )
-                    // В случае успеха обновляем текст и имя юзера
+                    // В случае успеха обновляем картинку
                     userNick = user.userName
                     userImageUrl = user.image
                     Log.d("MyLog", "User loaded: $user")
