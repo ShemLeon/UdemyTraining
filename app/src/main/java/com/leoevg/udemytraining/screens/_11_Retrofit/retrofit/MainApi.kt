@@ -7,6 +7,10 @@ import retrofit2.http.Path
 
 interface MainApi {
     // получение по базовому запросу
+    @GET("products")
+    suspend fun getAllProducts(): Products
+
+    // получение по базовому запросу
     @GET("products/{id}") // ретрофит добавляет к базовой ссылке наш указатель
     suspend fun getProductById(@Path("id") id: Int): Product
 
@@ -14,8 +18,5 @@ interface MainApi {
     @POST("auth/login")
     suspend fun auth(@Body authRequest: AuthRequest): User
 
-    // получение по базовому запросу
-    @GET("products") // ретрофит добавляет к базовой ссылке наш указатель
-    suspend fun getAllProducts(): Products
 
 }

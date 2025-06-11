@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -42,14 +41,12 @@ fun ProductItem(
                 .padding(end = 8.dp) // Отступ справа от картинки
         ) {
             Text(
-//                text = "Title",
                 text = product.title,
                 modifier = Modifier.padding(2.dp),
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold
             )
             Text(
-//                text = "Description",
                 text = product.description,
                 fontSize = 20.sp,
                 maxLines = 3
@@ -62,26 +59,17 @@ fun ProductItem(
                 .padding(4.dp),
             contentAlignment = Alignment.Center
             ){
-                var imageUrl = null
-                if(imageUrl != null) {
                     AsyncImage(
                         model =  product.thumbnail,
                         contentDescription = "product image",
                         modifier = Modifier
                             .fillMaxSize(),
                     )
-                } else {
-                    // Пример плейсхолдера
-                    Box(modifier = Modifier
-                        .fillMaxSize()
-                        .background(
-                            Color.LightGray,
-                            shape = RoundedCornerShape(12.dp))
-                    )
+
                 }
         }
     }
-}
+
 
 
 @Composable
