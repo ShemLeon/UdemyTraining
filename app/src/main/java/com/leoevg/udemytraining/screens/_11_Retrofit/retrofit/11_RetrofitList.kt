@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
@@ -21,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.leoevg.udemytraining.navigation.NavigationPath
+import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.components.ProductItem
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,6 +61,7 @@ fun ExampleRetrofitList(
            .build()
        Retrofit.Builder()
             .baseUrl("https://dummyjson.com")
+           .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MainApi::class.java)
@@ -76,7 +80,7 @@ fun ExampleRetrofitList(
             Log.d("MyLog", "Product loaded: ${productList.size} items")
         } catch (e: Exception){
             errorMessage = "ОШИБКА ЗАГРУЗКИ: ${e.message}"
-            Log.e("MyLog", "ОШИБКА ЗАГРУЗКИ PRODUKTOV")
+            Log.e("MyLog", "ОШИБКА ЗАГРУЗКИ PRODUKTOV", e)
         } finally {
             isLoading = false
         }
@@ -89,20 +93,42 @@ Column(
     horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.Center
 ) {
-    if (isLoading){
+    // Показываем индикатор загрузки
+    if (isLoading) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator()
         }
+    } else if (errorMessage != null) {
+        // Показываем сообщение об ошибке
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = errorMessage!!,
+                color =Color.Red,
+                fontSize = 20.sp
+            )
+        }
+    }else {
+        // Показываем список продуктов
+        LazyColumn(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(productList) { product ->
+                ProductItem(product = product)
+            }
+        }
     }
-        // Показываем индикатор загрузки
-}
 
-
+    }
 
 }
+
 
 
 @Composable
