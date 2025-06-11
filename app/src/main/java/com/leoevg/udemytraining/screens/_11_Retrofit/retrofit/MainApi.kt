@@ -13,4 +13,9 @@ interface MainApi {
     // отправка по базовому запросу
     @POST("auth/login")
     suspend fun auth(@Body authRequest: AuthRequest): User
+
+    // получение по базовому запросу
+    @GET("products") // ретрофит добавляет к базовой ссылке наш указатель
+    suspend fun getAllProducts(): Products
+
 }

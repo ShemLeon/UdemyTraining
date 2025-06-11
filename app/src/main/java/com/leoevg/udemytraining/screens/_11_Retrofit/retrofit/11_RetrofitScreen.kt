@@ -111,7 +111,7 @@ fun ExampleRetroFit(
             Box(modifier = Modifier.size(80.dp)
                 .background(Color.LightGray) // Пример плейсхолдера
             )}
-        }
+            }
             Button(
                 onClick = {
                     productText = "Загрузка..."
@@ -148,23 +148,41 @@ fun ExampleRetroFit(
         verticalArrangement = Arrangement.Center
     ){
         Button(
-        modifier = Modifier
-            .padding(top = 20.dp)
-            .fillMaxWidth()
-            .padding(horizontal = 15.dp)
-        ,
-        onClick = {
-            navigate(NavigationPath.ExampleRetrofitAuth)
-        }
-    ) {
-        Text(
             modifier = Modifier
+                .padding(top = 20.dp)
+                .fillMaxWidth()
+                .padding(horizontal = 15.dp)
+            ,
+            onClick = {
+                navigate(NavigationPath.ExampleRetrofitAuth)
+            }
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(5.dp),
+                text = "AUTH with RETROFIT",
+                fontSize = 25.sp,
+            )
+        }
 
-                .padding(5.dp),
-            text = "AUTH with RETROFIT",
-            fontSize = 25.sp,
-        )
-    }  }
+        Button(
+            modifier = Modifier
+                .padding(top = 20.dp)
+                .fillMaxWidth()
+                .padding(horizontal = 15.dp)
+            ,
+            onClick = {
+                navigate(NavigationPath.ExampleRetrofitList)
+            }
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(5.dp),
+                text = "GET LIST with RETROFIT",
+                fontSize = 25.sp,
+            )
+        }
+    }
 
 }
 
