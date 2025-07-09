@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.leoevg.udemytraining.navigation.NavigationPath.ExampleRetrofitList
 import com.leoevg.udemytraining.screens.CurConverter
 import com.leoevg.udemytraining.screens._9_ActivityLifeCycle.ExampleActivityLifeCycle
 import com.leoevg.udemytraining.screens.ExampleCustomComponent
@@ -37,6 +36,7 @@ fun MainNavHost(){
         composable<NavigationPath.HelloWorldSealed> {
             HelloWorld()
         }
+
         composable<NavigationPath.GreetingAppSealed> {
             GreetingApp{ path ->
                 navController.navigate(path)
