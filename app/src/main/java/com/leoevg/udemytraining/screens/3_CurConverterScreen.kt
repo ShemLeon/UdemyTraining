@@ -86,6 +86,7 @@ fun CurConverter(
                     fontSize = 18.sp
                 )
             )
+//btn "Convert"
         Button(
             modifier = Modifier
                 .fillMaxWidth(fraction = 0.8f)
@@ -116,7 +117,7 @@ fun CurConverter(
             color = Color.Black,
             modifier = Modifier.padding(top = 30.dp)
         )
-
+// btn "Go Home"
         Button(
                 modifier = Modifier
                    .fillMaxWidth(fraction = 0.8f)

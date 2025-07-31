@@ -13,11 +13,13 @@ import com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner.ExampleSna
 import com.leoevg.udemytraining.screens.ExampleViewModel
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens.GreetingApp
-import com.leoevg.udemytraining.screens.HelloWorld
+import com.leoevg.udemytraining.screens._1_HelloWorld_SnackBar.HelloWorld
 import com.leoevg.udemytraining.screens.StartScreen
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetroFit
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitAuth
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitList
+import com.leoevg.udemytraining.screens._12_Experiments.ExperimentsScreen
+
 
 @Composable
 fun MainNavHost(){
@@ -32,11 +34,9 @@ fun MainNavHost(){
                 navController.navigate(path)
             }
         }
-
         composable<NavigationPath.HelloWorldSealed> {
             HelloWorld()
         }
-
         composable<NavigationPath.GreetingAppSealed> {
             GreetingApp{ path ->
                 navController.navigate(path)
@@ -102,11 +102,18 @@ fun MainNavHost(){
             })
         }
 
-        composable<NavigationPath.ExampleRetrofitList> {
+        composable<NavigationPath.ExampleRetrofitListSealed> {
             ExampleRetrofitList(navigate = {
                 navController.navigate(it)
             })
         }
+
+        composable<NavigationPath.ExampleExperimentsSealed> {
+            ExperimentsScreen(navigate = {
+                navController.navigate(it)
+            })
+        }
+
 
 
 

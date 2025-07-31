@@ -47,6 +47,7 @@ android {
 
 
 dependencies {
+    implementation(libs.material.icons.extended)
     api(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
@@ -79,7 +80,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.kotlin.serialization.json)
     implementation(libs.androidx.navigation.compose)
-
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)

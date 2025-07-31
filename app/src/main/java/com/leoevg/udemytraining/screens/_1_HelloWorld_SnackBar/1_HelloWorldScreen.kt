@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._1_HelloWorld_SnackBar
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -64,6 +64,7 @@ fun HelloWorld(
                     text = "simple snackBar",
                     fontSize = 40.sp,
                     textAlign = TextAlign.Center,
+                    lineHeight = 48.sp,
                 )
             }
             Button(

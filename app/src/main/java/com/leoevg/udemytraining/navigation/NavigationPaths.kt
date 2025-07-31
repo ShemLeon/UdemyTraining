@@ -15,6 +15,7 @@ sealed interface NavigationPath{
     @Serializable object ExampleSnackBar: NavigationPath
     @Serializable object ExampleRetroFit: NavigationPath
     @Serializable object ExampleRetrofitAuth: NavigationPath
-    @Serializable object ExampleRetrofitList: NavigationPath
+    @Serializable object ExampleRetrofitListSealed: NavigationPath
+    @Serializable object ExampleExperimentsSealed: NavigationPath
 
 }

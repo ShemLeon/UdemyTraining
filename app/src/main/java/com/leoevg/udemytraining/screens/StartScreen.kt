@@ -79,6 +79,9 @@ fun StartScreen(
         CustomBtn(Modifier, "11. RetroFit", Green){
             navigate(NavigationPath.ExampleRetroFit)
         }
+        CustomBtn(Modifier, "12. Experiments", Green){
+            navigate(NavigationPath.ExampleExperimentsSealed)
+        }
 
 
     }
@@ -110,7 +113,7 @@ fun CustomBtn(
 
 @Preview(showBackground = true)
 @Composable
-fun StartScreen() {
+fun StartScreenPreview() {
     UdemyTrainingTheme {
         MainNavHost()
     }
