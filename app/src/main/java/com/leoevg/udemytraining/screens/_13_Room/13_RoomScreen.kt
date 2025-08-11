@@ -68,7 +68,7 @@ fun RoomScreen(
         Spacer(modifier = Modifier.height(5.dp))
         LazyColumn(modifier = Modifier.fillMaxWidth()){
             items(6){
-                Text(text = "Item $it")
+                ListItem()
             }
         }
 
