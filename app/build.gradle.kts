@@ -1,6 +1,3 @@
-
-import org.gradle.kotlin.dsl.implementation
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,7 +5,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
-
 }
 
 android {
@@ -49,6 +45,14 @@ android {
 
 
 dependencies {
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    // ViewModel
+    implementation(libs.lifecycle.viewmodel.compose)
+
     implementation(libs.material.icons.extended)
     api(platform(libs.okhttp.bom))
     implementation(libs.okhttp)
@@ -70,7 +74,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
