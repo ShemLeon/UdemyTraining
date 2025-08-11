@@ -19,7 +19,7 @@ import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetroFit
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitAuth
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitList
 import com.leoevg.udemytraining.screens._12_Experiments.ExperimentsScreen
-import com.leoevg.udemytraining.screens._13_Room.RoomScreen
+import com.leoevg.udemytraining.screens._13_Room.ui.RoomScreen
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens._13_Room
+package com.leoevg.udemytraining.screens._13_Room.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
