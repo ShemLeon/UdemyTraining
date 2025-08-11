@@ -16,8 +16,9 @@ import androidx.room.RoomDatabase
 )
 
 abstract class MainDB: RoomDatabase() {
-
+    abstract val dao: Dao
     companion object{
+
         fun createDataBase(context: Context): MainDB{
             return Room.databaseBuilder(
                 context,
