@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._5_DaggerHilt
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,6 @@ import com.leoevg.udemytraining.data.SayHelloWorldManager
 import com.leoevg.udemytraining.data.UserManager
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
-import com.leoevg.udemytraining.viewmodels._5_DaggerExampleViewModel
 
 @Composable
 fun ExampleDaggerHilt(

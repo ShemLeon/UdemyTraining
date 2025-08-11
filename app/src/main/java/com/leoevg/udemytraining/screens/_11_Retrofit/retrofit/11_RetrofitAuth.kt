@@ -61,6 +61,7 @@ fun ExampleRetrofitAuth(
             .build()
             .create(MainApi::class.java)
     }
+
     // 3. Создаем переменную состояния для текста. Compose будет следить за ее изменениями.
     var entryEmail by remember { mutableStateOf("emilys") }
     var entryPassword by remember { mutableStateOf("emilyspass") }

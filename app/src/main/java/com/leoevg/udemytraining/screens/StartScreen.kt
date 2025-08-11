@@ -82,6 +82,9 @@ fun StartScreen(
         CustomBtn(Modifier, "12. Experiments", Green){
             navigate(NavigationPath.ExampleExperimentsSealed)
         }
+        CustomBtn(Modifier, "13. Room", Green){
+            navigate(NavigationPath.ExampleRoomSealed)
+        }
 
 
     }

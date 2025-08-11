@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.viewmodels
+package com.leoevg.udemytraining.screens._5_DaggerHilt
 
 import androidx.lifecycle.ViewModel
 import com.leoevg.udemytraining.data.SayByeByeManager
@@ -11,11 +11,11 @@ open class _5_DaggerExampleViewModel @Inject constructor(
     private val sayHelloWorldManager: SayHelloWorldManager,
     private val sayByeByeManager: SayByeByeManager
 ) : ViewModel() {
-    
+
     fun sayHello(): String {
         return sayHelloWorldManager.sayHello()
     }
     fun sayBye(): String {
         return sayByeByeManager.sayBye()
     }
-} 
+}
