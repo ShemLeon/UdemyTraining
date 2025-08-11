@@ -24,6 +24,7 @@ fun ListItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(5.dp)
+            .clickable{}
     ){
         Row(
             modifier = Modifier.fillMaxWidth(),

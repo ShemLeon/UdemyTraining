@@ -1,4 +1,5 @@
-import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
+import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)
@@ -7,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.google.devtools.ksp)
+
 }
 
 android {
@@ -57,8 +59,6 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-
-
 
 
     implementation(libs.listenablefuture)
