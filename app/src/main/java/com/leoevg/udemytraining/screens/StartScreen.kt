@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Green
+import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -85,6 +86,10 @@ fun StartScreen(
         CustomBtn(Modifier, "13. Room", Green){
             navigate(NavigationPath.ExampleRoomSealed)
         }
+        CustomBtn(Modifier, "14. UseCase", Red){
+            navigate(NavigationPath.ExampleUseCaseSealed)
+        }
+
 
 
     }

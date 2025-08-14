@@ -18,6 +18,7 @@ sealed interface NavigationPath{
     @Serializable object ExampleRetrofitListSealed: NavigationPath
     @Serializable object ExampleExperimentsSealed: NavigationPath
     @Serializable object ExampleRoomSealed: NavigationPath
+    @Serializable object ExampleUseCaseSealed: NavigationPath
 
 
 }

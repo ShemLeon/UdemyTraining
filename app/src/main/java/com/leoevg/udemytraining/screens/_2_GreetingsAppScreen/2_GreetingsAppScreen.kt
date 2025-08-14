@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._2_GreetingsAppScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
