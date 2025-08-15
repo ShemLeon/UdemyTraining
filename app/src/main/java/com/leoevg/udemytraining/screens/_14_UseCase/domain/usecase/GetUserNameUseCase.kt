@@ -11,6 +11,8 @@ class GetUserNameUseCase {
         )
     }
 }
+
+
 // У нас есть UseCase в котором есть метод execute()
 // который возвращает данные
 

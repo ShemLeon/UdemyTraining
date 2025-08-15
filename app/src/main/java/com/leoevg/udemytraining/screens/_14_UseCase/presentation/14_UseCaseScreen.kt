@@ -25,16 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.leoevg.udemytraining.navigation.NavigationPath
-import com.leoevg.udemytraining.screens._14_UseCase.domain.models.SaveUserNameParam
-import com.leoevg.udemytraining.screens._14_UseCase.domain.models.UserName
 import com.leoevg.udemytraining.ui.theme.Blue
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.GetUserNameUseCase
-import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.SaveUserNameUseCase
 
 @Composable
 fun UseCaseScreen(
@@ -68,7 +60,7 @@ fun UseCaseScreen(
                 .padding(top = 16.dp)
         ) {
             Text(
-                text = "GET DATA",
+                text = "GET USER DATA",
                 fontSize = 30.sp
             )
         }
@@ -89,7 +81,7 @@ fun UseCaseScreen(
                 .padding(top = 16.dp)
         ) {
             Text(
-                text = "SAVE DATA",
+                text = "SAVE USER DATA",
                 fontSize = 30.sp
             )
         }

@@ -1,10 +1,15 @@
 package com.leoevg.udemytraining.screens._14_UseCase.domain.usecase
 
 import com.leoevg.udemytraining.screens._14_UseCase.domain.models.SaveUserNameParam
+import com.leoevg.udemytraining.screens._14_UseCase.domain.repository.UserRepository
 
-class SaveUserNameUseCase {
+class SaveUserNameUseCase(private val userRepository: UserRepository) {
     fun execute(param: SaveUserNameParam): Boolean {
-        if (param.name.isEmpty()) return false
-        else return true
+        val result: Boolean = userRepository.saveName(saveParam = param)
+        return result
     }
 }
+
+
+//
+// private val userRepository: UserRepository
