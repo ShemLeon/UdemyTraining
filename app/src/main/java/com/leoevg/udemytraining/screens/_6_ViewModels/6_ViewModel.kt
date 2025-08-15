@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._6_ViewModels
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,12 +26,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.leoevg.udemytraining.R
 import com.leoevg.udemytraining.navigation.NavigationPath
 import com.leoevg.udemytraining.ui.theme.UdemyTrainingTheme
-import com.leoevg.udemytraining.viewmodels._6_ScreenExampleViewModel
 
 @Composable
 fun ExampleViewModel(
     navigate: (NavigationPath) -> Unit = {}
-){
+) {
     val viewModel: _6_ScreenExampleViewModel = viewModel()
     Box(
         modifier = Modifier.fillMaxSize()
@@ -42,14 +41,14 @@ fun ExampleViewModel(
             contentDescription = "background image",
             contentScale = ContentScale.FillHeight
         )
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White.copy(alpha=0.3f))
+                .background(Color.White.copy(alpha = 0.3f))
                 .padding(vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
-        ){
+        ) {
             // Title
             Text(
                 text = "Example ViewModel",
@@ -121,7 +120,7 @@ fun ExampleViewModel(
                     .padding(bottom = 16.dp)
             ) {
                 Text(
-                    text="Login",
+                    text = "Login",
                     fontSize = 36.sp
                 )
 
@@ -135,9 +134,9 @@ fun ExampleViewModel(
 
 
 @Composable
-@Preview (showBackground = true)
-fun ExampleViewModelPreview(){
+@Preview(showBackground = true)
+fun ExampleViewModelPreview() {
     UdemyTrainingTheme {
-        ExampleViewModel{}
+        ExampleViewModel {}
     }
 }

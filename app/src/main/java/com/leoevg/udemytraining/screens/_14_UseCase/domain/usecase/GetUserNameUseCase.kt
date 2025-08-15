@@ -9,7 +9,8 @@ class GetUserNameUseCase {
             firstName = "Leo",
             lastName = "Shemiakin"
         )
-    }}
+    }
+}
 // У нас есть UseCase в котором есть метод execute()
 // который возвращает данные
 

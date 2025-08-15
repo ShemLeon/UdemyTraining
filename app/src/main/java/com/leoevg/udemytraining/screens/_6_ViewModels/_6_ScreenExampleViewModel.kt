@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.viewmodels
+package com.leoevg.udemytraining.screens._6_ViewModels
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

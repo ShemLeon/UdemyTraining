@@ -1,7 +1,6 @@
-package com.leoevg.udemytraining.screens._14_UseCase.domain.usecase
+package com.leoevg.udemytraining.screens._14_UseCase.presentation
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -33,30 +32,36 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.GetUserNameUseCase
+import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.SaveUserNameUseCase
 
 @Composable
 fun UseCaseScreen(
     navigate: (NavigationPath) -> Unit = {}
 ) {
-    val getUserNameUseCase = GetUserNameUseCase()
-    val saveUserNameUseCase = SaveUserNameUseCase()
-
+    val viewModel: UseCaseViewModel = viewModel()
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp, end = 16.dp, top = 100.dp),
     ) {
         OutlinedTextField(
-            value = "",
+            value = viewModel.displayText,
             onValueChange = {},
-            label = { Text("No data") },
-            modifier = Modifier.fillMaxWidth()
+            label = {
+                Text(
+                    if (viewModel.displayText.isEmpty()) "No data"
+                    else ""
+                )
+            },
+            modifier = Modifier.fillMaxWidth(),
+            readOnly = true
         )
         // кнопка Get data
         Button(
             onClick = {
-                val userName: UserName = getUserNameUseCase.execute()
-                dataTextView.text = "${userName.firstName} ${userName.lastName}"
+                viewModel.getUserName()
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -69,18 +74,15 @@ fun UseCaseScreen(
         }
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = viewModel.inputText,
+            onValueChange = { viewModel.inputText = it },
             label = { Text("Put your data here") },
             modifier = Modifier.fillMaxWidth()
         )
         // кнопка Save data
         Button(
             onClick = {
-                val text = getUserNameUseCase.execute().toString()
-                val params = SaveUserNameParam(name = text)
-                val result: Boolean = saveUserNameUseCase.execute(params = params)
-                dataTextView.text = "Save result = $result"
+                viewModel.saveUserName()
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -133,6 +135,6 @@ fun UseCaseScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun UseCaseScreenPreview(){
+fun UseCaseScreenPreview() {
     UseCaseScreen()
 }

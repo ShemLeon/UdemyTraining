@@ -10,7 +10,7 @@ import com.leoevg.udemytraining.screens.ExampleCustomComponent
 import com.leoevg.udemytraining.screens._5_DaggerHilt.ExampleDaggerHilt
 import com.leoevg.udemytraining.screens.ExampleLazyRow
 import com.leoevg.udemytraining.screens._10_Snackbar_fromFilipLackner.ExampleSnackBar
-import com.leoevg.udemytraining.screens.ExampleViewModel
+import com.leoevg.udemytraining.screens._6_ViewModels.ExampleViewModel
 import com.leoevg.udemytraining.screens.FragmentApp
 import com.leoevg.udemytraining.screens._2_GreetingsAppScreen.GreetingApp
 import com.leoevg.udemytraining.screens._1_HelloWorld_SnackBar.HelloWorld
@@ -20,7 +20,7 @@ import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitAut
 import com.leoevg.udemytraining.screens._11_Retrofit.retrofit.ExampleRetrofitList
 import com.leoevg.udemytraining.screens._12_Experiments.ExperimentsScreen
 import com.leoevg.udemytraining.screens._13_Room.ui.RoomScreen
-import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.UseCaseScreen
+import com.leoevg.udemytraining.screens._14_UseCase.presentation.UseCaseScreen
 
 
 @Composable
