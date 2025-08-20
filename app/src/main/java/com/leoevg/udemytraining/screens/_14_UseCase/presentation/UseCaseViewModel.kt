@@ -1,28 +1,29 @@
 package com.leoevg.udemytraining.screens._14_UseCase.presentation
 
+import android.app.Application
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import com.leoevg.udemytraining.screens._14_UseCase.data.repository.UserRepositoryImpl
 import com.leoevg.udemytraining.screens._14_UseCase.domain.models.SaveUserNameParam
 import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.GetUserNameUseCase
 import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.SaveUserNameUseCase
 
 
-class UseCaseViewModel : ViewModel() {
+class UseCaseViewModel(application: Application) : AndroidViewModel(application) {
     // состояния для хранения текста
     var displayText by mutableStateOf("")
     var inputText by mutableStateOf("")
 
     // создание репозитория
-    private val userRepository = UserRepositoryImpl()
+    private val userRepository by lazy(LazyThreadSafetyMode.NONE) { UserRepositoryImpl(context = application) }
     // создание UseCase'ов
-    private val getUserNameUseCase = GetUserNameUseCase(userRepository = userRepository)
-    private val saveUserNameUseCase = SaveUserNameUseCase(userRepository = userRepository)
+    private val getUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) {  GetUserNameUseCase(userRepository = userRepository) }
+    private val saveUserNameUseCase by lazy {  SaveUserNameUseCase(userRepository = userRepository) }
 
     fun getUserName() {
-        val userName = getUserNameUseCase.execute(param = SaveUserNameParam(""))
+        val userName = getUserNameUseCase.execute()
         displayText = "${userName.firstName} ${userName.lastName}"
     }
     fun saveUserName() {

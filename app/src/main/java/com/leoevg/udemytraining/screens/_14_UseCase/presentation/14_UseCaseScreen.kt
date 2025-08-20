@@ -33,28 +33,43 @@ fun UseCaseScreen(
     navigate: (NavigationPath) -> Unit = {}
 ) {
     val viewModel: UseCaseViewModel = viewModel()
+    UseCaseContent(
+        displayText = viewModel.displayText,
+        inputText = viewModel.inputText,
+        onGetUserName = { viewModel.getUserName() },
+        onInputChange = { viewModel.inputText = it },
+        onSaveUserName = { viewModel.saveUserName() },
+        onNavigateHome = { navigate(NavigationPath.StartSealed) }
+    )
+}
+@Composable
+fun UseCaseContent(
+    displayText: String,
+    inputText: String,
+    onGetUserName: () -> Unit,
+    onInputChange: (String) -> Unit,
+    onSaveUserName: () -> Unit,
+    onNavigateHome: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp, end = 16.dp, top = 100.dp),
     ) {
         OutlinedTextField(
-            value = viewModel.displayText,
+            value = displayText,
             onValueChange = {},
             label = {
                 Text(
-                    if (viewModel.displayText.isEmpty()) "No data"
+                    if (displayText.isEmpty()) "No data"
                     else ""
                 )
             },
             modifier = Modifier.fillMaxWidth(),
             readOnly = true
         )
-        // кнопка Get data
         Button(
-            onClick = {
-                viewModel.getUserName()
-            },
+            onClick = onGetUserName,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
@@ -66,27 +81,23 @@ fun UseCaseScreen(
         }
 
         OutlinedTextField(
-            value = viewModel.inputText,
-            onValueChange = { viewModel.inputText = it },
+            value = inputText,
+            onValueChange = onInputChange,
             label = { Text("Put your data here") },
             modifier = Modifier.fillMaxWidth()
         )
-        // кнопка Save data
         Button(
-            onClick = {
-                viewModel.saveUserName()
-            },
+            onClick = onSaveUserName,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
         ) {
             Text(
-                text = "SAVE USER DATA",
+                text = "SAVE USER NAME",
                 fontSize = 30.sp
             )
         }
         Spacer(modifier = Modifier.weight(1f))
-        // btn "Go Home"
         Card(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -107,9 +118,7 @@ fun UseCaseScreen(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue
                 ),
-                onClick = {
-                    navigate(NavigationPath.StartSealed)
-                },
+                onClick = onNavigateHome,
                 shape = RoundedCornerShape(8.dp)
             ) {
                 Icon(
@@ -119,14 +128,18 @@ fun UseCaseScreen(
                 )
             }
         }
-
-
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
 fun UseCaseScreenPreview() {
-    UseCaseScreen()
+    UseCaseContent(
+        displayText = "John Doe",
+        inputText = "Alice",
+        onGetUserName = {},
+        onInputChange = {},
+        onSaveUserName = {},
+        onNavigateHome = {}
+    )
 }

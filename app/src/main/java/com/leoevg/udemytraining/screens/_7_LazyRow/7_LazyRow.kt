@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._7_LazyRow
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

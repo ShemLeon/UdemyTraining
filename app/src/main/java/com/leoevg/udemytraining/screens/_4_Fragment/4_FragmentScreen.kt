@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens
+package com.leoevg.udemytraining.screens._4_Fragment
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
