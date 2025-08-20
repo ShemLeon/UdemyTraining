@@ -15,6 +15,3 @@ class SaveUserNameUseCase(private val userRepository: UserRepository) {
         return result
     }
 }
-
-
-//

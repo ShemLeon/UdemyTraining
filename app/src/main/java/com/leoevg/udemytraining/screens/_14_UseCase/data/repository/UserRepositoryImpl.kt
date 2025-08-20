@@ -1,31 +1,24 @@
 package com.leoevg.udemytraining.screens._14_UseCase.data.repository
 
-import android.content.Context
+import com.leoevg.udemytraining.screens._14_UseCase.data.storage.models.User
+import com.leoevg.udemytraining.screens._14_UseCase.data.storage.UserStorage
 import com.leoevg.udemytraining.screens._14_UseCase.domain.models.SaveUserNameParam
 import com.leoevg.udemytraining.screens._14_UseCase.domain.models.UserName
 import com.leoevg.udemytraining.screens._14_UseCase.domain.repository.UserRepository
 
-private const val SHARED_PREFS_NAME = "shared_prefs_name"
-private const val KEY_FIRST_NAME = "firstName"
-private const val KEY_LAST_NAME = "lastName"
-private const val DEFAULT_NAME = "Default last name"
+class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository {
 
-class UserRepositoryImpl(private val context: Context) : UserRepository {
-    private val sharedPreferences =
-        context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
 
     override fun saveName(saveParam: SaveUserNameParam): Boolean {
-        sharedPreferences.edit().putString(KEY_FIRST_NAME, saveParam.name).apply()
-        return true
+        val user = User(firstName = saveParam.name, lastName = "")
+
+        val result = userStorage.save(user)
+        return result
     }
 
     override fun getName(): UserName {
-        val firstName = sharedPreferences.getString(KEY_FIRST_NAME, "") ?: ""
-        val lastName = sharedPreferences.getString(KEY_LAST_NAME, DEFAULT_NAME) ?: DEFAULT_NAME
-
-        return UserName(
-            firstName = firstName,
-            lastName = lastName
-        )
+        val user = userStorage.get()
+        val userName = UserName(firstName = user.firstName, lastName = user.lastName)
+        return userName
     }
 }
