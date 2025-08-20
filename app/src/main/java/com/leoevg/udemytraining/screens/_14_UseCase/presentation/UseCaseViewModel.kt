@@ -6,10 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.AndroidViewModel
 import com.leoevg.udemytraining.screens._14_UseCase.data.repository.UserRepositoryImpl
+import com.leoevg.udemytraining.screens._14_UseCase.data.storage.sharedprefs.SharedPrefUserStorage
 import com.leoevg.udemytraining.screens._14_UseCase.domain.models.SaveUserNameParam
 import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.GetUserNameUseCase
 import com.leoevg.udemytraining.screens._14_UseCase.domain.usecase.SaveUserNameUseCase
-
 
 class UseCaseViewModel(application: Application) : AndroidViewModel(application) {
     // состояния для хранения текста
@@ -17,7 +17,9 @@ class UseCaseViewModel(application: Application) : AndroidViewModel(application)
     var inputText by mutableStateOf("")
 
     // создание репозитория
-    private val userRepository by lazy(LazyThreadSafetyMode.NONE) { UserRepositoryImpl(context = application) }
+    private val userRepository by lazy(LazyThreadSafetyMode.NONE) {
+        UserRepositoryImpl(userStorage = SharedPrefUserStorage(context = application))
+    }
     // создание UseCase'ов
     private val getUserNameUseCase by lazy(LazyThreadSafetyMode.NONE) {  GetUserNameUseCase(userRepository = userRepository) }
     private val saveUserNameUseCase by lazy {  SaveUserNameUseCase(userRepository = userRepository) }

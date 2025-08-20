@@ -1,4 +1,4 @@
-package com.leoevg.udemytraining.screens._14_UseCase.data.storage.sharedrefs
+package com.leoevg.udemytraining.screens._14_UseCase.data.storage.sharedprefs
 
 import android.content.Context
 import com.leoevg.udemytraining.screens._14_UseCase.data.storage.UserStorage

@@ -8,17 +8,23 @@ import com.leoevg.udemytraining.screens._14_UseCase.domain.repository.UserReposi
 
 class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository {
 
-
     override fun saveName(saveParam: SaveUserNameParam): Boolean {
-        val user = User(firstName = saveParam.name, lastName = "")
-
+        val user = mapToStorage(saveParam)
         val result = userStorage.save(user)
         return result
     }
 
     override fun getName(): UserName {
         val user = userStorage.get()
-        val userName = UserName(firstName = user.firstName, lastName = user.lastName)
-        return userName
+        return mapToDomain(user)
     }
+
+    private fun mapToStorage(saveParam: SaveUserNameParam): User {
+        return User(firstName = saveParam.name, lastName = "")
+    }
+
+    private fun mapToDomain(user: User): UserName {
+        return UserName(firstName = user.firstName, lastName = user.lastName)
+    }
+
 }
